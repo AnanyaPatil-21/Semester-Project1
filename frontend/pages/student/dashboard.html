@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | CampusPlus</title>
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <h2>CampusPlus</h2>
+                <span>Student Portal</span>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item active">
+                    <span class="nav-icon">⌂</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="complaints.html" class="nav-item">
+                    <span class="nav-icon">▣</span>
+                    <span>Complaints</span>
+                </a>
+
+                <a href="campus-directory.html" class="nav-item">
+                    <span class="nav-icon">⌖</span>
+                    <span>Campus Directory</span>
+                </a>
+
+                <a href="announcements.html" class="nav-item">
+                    <span class="nav-icon">▤</span>
+                    <span>Announcements</span>
+                </a>
+
+                <a href="profile.html" class="nav-item">
+                    <span class="nav-icon">◯</span>
+                    <span>Profile</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <a href="../../index.html" class="nav-item logout-btn">
+                    <span class="nav-icon">↪</span>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Mobile Overlay -->
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+        <!-- Main Content -->
+
+        <main class="dashboard-main">
+
+            <!-- Top Bar -->
+
+            <header class="dashboard-topbar">
+
+                <button class="menu-button" id="menuButton">
+                    ☰
+                </button>
+
+                <div class="topbar-title">
+                    <h2>Dashboard</h2>
+                    <p>Student Portal</p>
+                </div>
+
+                <div class="student-profile">
+
+                    <div class="profile-avatar">
+                        S
+                    </div>
+
+                    <div class="profile-info">
+                        <strong>Student</strong>
+                        <span>Student</span>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- Dashboard Content -->
+
+            <section class="dashboard-content">
+
+                <!-- Welcome -->
+
+                <div class="welcome-section">
+
+                    <div>
+                        <p class="welcome-label">Welcome back</p>
+                        <h1>Hello, Student!</h1>
+                        <p>
+                            Manage your campus services and track your complaints
+                            from one place.
+                        </p>
+                    </div>
+
+                    <a href="submit-complaint.html" class="btn-primary">
+                        Submit Complaint
+                    </a>
+
+                </div>
+
+
+                <!-- Statistics -->
+
+                <div class="dashboard-stats">
+
+                    <div class="stat-card">
+                        <div class="stat-icon total">▣</div>
+                        <div>
+                            <span>Total Complaints</span>
+                            <h3>04</h3>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon pending">◷</div>
+                        <div>
+                            <span>Pending</span>
+                            <h3>02</h3>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon progress">↻</div>
+                        <div>
+                            <span>In Progress</span>
+                            <h3>01</h3>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon completed">✓</div>
+                        <div>
+                            <span>Completed</span>
+                            <h3>01</h3>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Dashboard Grid -->
+
+                <div class="dashboard-grid">
+
+                    <!-- Recent Complaints -->
+
+                    <div class="dashboard-card">
+
+                        <div class="card-header">
+                            <div>
+                                <h2>Recent Complaints</h2>
+                                <p>Your latest submitted complaints</p>
+                            </div>
+
+                            <a href="my-complaints.html">View All</a>
+                        </div>
+
+                        <div class="complaint-list">
+
+                            <div class="complaint-row">
+
+                                <div class="complaint-info">
+                                    <strong>Projector not working</strong>
+                                    <span>Classroom 101</span>
+                                </div>
+
+                                <span class="status status-progress">
+                                    In Progress
+                                </span>
+
+                            </div>
+
+
+                            <div class="complaint-row">
+
+                                <div class="complaint-info">
+                                    <strong>Fan not working</strong>
+                                    <span>Computer Lab</span>
+                                </div>
+
+                                <span class="status status-pending">
+                                    Pending
+                                </span>
+
+                            </div>
+
+
+                            <div class="complaint-row">
+
+                                <div class="complaint-info">
+                                    <strong>Light issue</strong>
+                                    <span>Classroom 102</span>
+                                </div>
+
+                                <span class="status status-completed">
+                                    Completed
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Announcements -->
+
+                    <div class="dashboard-card">
+
+                        <div class="card-header">
+                            <div>
+                                <h2>Announcements</h2>
+                                <p>Latest campus updates</p>
+                            </div>
+
+                            <a href="announcements.html">View All</a>
+                        </div>
+
+                        <div class="announcement-list">
+
+                            <div class="announcement-item">
+
+                                <div class="announcement-date">
+                                    <strong>10</strong>
+                                    <span>SEP</span>
+                                </div>
+
+                                <div>
+                                    <strong>Internal Examination Notice</strong>
+                                    <p>Important examination updates.</p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="announcement-item">
+
+                                <div class="announcement-date">
+                                    <strong>08</strong>
+                                    <span>SEP</span>
+                                </div>
+
+                                <div>
+                                    <strong>Campus Maintenance Update</strong>
+                                    <p>Maintenance work scheduled this week.</p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="announcement-item">
+
+                                <div class="announcement-date">
+                                    <strong>05</strong>
+                                    <span>SEP</span>
+                                </div>
+
+                                <div>
+                                    <strong>Department Notice</strong>
+                                    <p>Check the latest department updates.</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/dashboard.js"></script>
+
+</body>
+
+</html>

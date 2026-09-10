@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | CampusPlus</title>
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <h2>CampusPlus</h2>
+                <span>Admin Portal</span>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item active">
+                    <span class="nav-icon">⌂</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="complaints.html" class="nav-item">
+                    <span class="nav-icon">▣</span>
+                    <span>Complaints</span>
+                </a>
+
+                <a href="announcements.html" class="nav-item">
+                    <span class="nav-icon">▤</span>
+                    <span>Announcements</span>
+                </a>
+
+                <a href="campus-directory.html" class="nav-item">
+                    <span class="nav-icon">⌖</span>
+                    <span>Campus Directory</span>
+                </a>
+
+                <a href="system-status.html" class="nav-item">
+                    <span class="nav-icon">◉</span>
+                    <span>System Status</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <a href="../../index.html" class="nav-item logout-btn">
+                    <span class="nav-icon">↪</span>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+        <!-- Main Content -->
+
+        <main class="dashboard-main">
+
+            <header class="dashboard-topbar">
+
+                <button class="menu-button" id="menuButton">
+                    ☰
+                </button>
+
+                <div class="topbar-title">
+                    <h2>Admin Dashboard</h2>
+                    <p>CampusPlus Administration</p>
+                </div>
+
+                <div class="student-profile">
+
+                    <div class="profile-avatar admin-avatar">
+                        A
+                    </div>
+
+                    <div class="profile-info">
+                        <strong>Admin</strong>
+                        <span>Administrator</span>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- Dashboard Content -->
+
+            <section class="dashboard-content">
+
+                <div class="welcome-section">
+
+                    <div>
+                        <p class="welcome-label">Administration</p>
+
+                        <h1>Welcome, Admin!</h1>
+
+                        <p>
+                            Monitor complaints, announcements and
+                            CampusPlus system activity.
+                        </p>
+                    </div>
+
+                    <a href="complaints.html" class="btn-primary">
+                        View Complaints
+                    </a>
+
+                </div>
+
+
+                <!-- Statistics -->
+
+                <div class="dashboard-stats">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon total">▣</div>
+
+                        <div>
+                            <span>Total Complaints</span>
+                            <h3>24</h3>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon pending">◷</div>
+
+                        <div>
+                            <span>Pending</span>
+                            <h3>08</h3>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon progress">↻</div>
+
+                        <div>
+                            <span>In Progress</span>
+                            <h3>06</h3>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon completed">✓</div>
+
+                        <div>
+                            <span>Completed</span>
+                            <h3>10</h3>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-grid">
+
+                    <!-- Complaints -->
+
+                    <div class="dashboard-card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <h2>Recent Complaints</h2>
+                                <p>Latest complaints submitted by students</p>
+                            </div>
+
+                            <a href="complaints.html">View All</a>
+
+                        </div>
+
+
+                        <div class="complaint-list">
+
+                            <div class="complaint-row">
+
+                                <div class="complaint-info">
+                                    <strong>Projector not working</strong>
+                                    <span>Classroom 101 • Student</span>
+                                </div>
+
+                                <span class="status status-pending">
+                                    Pending
+                                </span>
+
+                            </div>
+
+
+                            <div class="complaint-row">
+
+                                <div class="complaint-info">
+                                    <strong>Fan not working</strong>
+                                    <span>Computer Lab • Student</span>
+                                </div>
+
+                                <span class="status status-progress">
+                                    In Progress
+                                </span>
+
+                            </div>
+
+
+                            <div class="complaint-row">
+
+                                <div class="complaint-info">
+                                    <strong>Light issue</strong>
+                                    <span>Classroom 102 • Student</span>
+                                </div>
+
+                                <span class="status status-completed">
+                                    Completed
+                                </span>
+
+                            </div>
+
+
+                            <div class="complaint-row">
+
+                                <div class="complaint-info">
+                                    <strong>Water supply issue</strong>
+                                    <span>Department Area • Student</span>
+                                </div>
+
+                                <span class="status status-pending">
+                                    Pending
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- System Status -->
+
+                    <div class="dashboard-card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <h2>System Status</h2>
+                                <p>Current CampusPlus status</p>
+                            </div>
+
+                            <a href="system-status.html">
+                                Details
+                            </a>
+
+                        </div>
+
+
+                        <div class="system-status-list">
+
+                            <div class="system-status-item">
+
+                                <div class="system-status-name">
+                                    <span class="status-dot online"></span>
+                                    CampusPlus
+                                </div>
+
+                                <strong>Operational</strong>
+
+                            </div>
+
+
+                            <div class="system-status-item">
+
+                                <div class="system-status-name">
+                                    <span class="status-dot online"></span>
+                                    Complaint System
+                                </div>
+
+                                <strong>Operational</strong>
+
+                            </div>
+
+
+                            <div class="system-status-item">
+
+                                <div class="system-status-name">
+                                    <span class="status-dot online"></span>
+                                    Database
+                                </div>
+
+                                <strong>Operational</strong>
+
+                            </div>
+
+
+                            <div class="system-status-item">
+
+                                <div class="system-status-name">
+                                    <span class="status-dot online"></span>
+                                    Student Portal
+                                </div>
+
+                                <strong>Operational</strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Admin Quick Actions -->
+
+                <div class="dashboard-card quick-actions-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Quick Actions</h2>
+                            <p>Frequently used administration tools</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="quick-actions">
+
+                        <a href="complaints.html" class="quick-action">
+                            <span>▣</span>
+                            <strong>Manage Complaints</strong>
+                            <small>Review and update complaints</small>
+                        </a>
+
+                        <a href="announcements.html" class="quick-action">
+                            <span>▤</span>
+                            <strong>Announcements</strong>
+                            <small>Manage campus notices</small>
+                        </a>
+
+                        <a href="campus-directory.html" class="quick-action">
+                            <span>⌖</span>
+                            <strong>Campus Directory</strong>
+                            <small>Manage campus locations</small>
+                        </a>
+
+                        <a href="system-status.html" class="quick-action">
+                            <span>◉</span>
+                            <strong>System Status</strong>
+                            <small>Monitor system activity</small>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/dashboard.js"></script>
+
+</body>
+
+</html>
