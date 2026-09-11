@@ -1,5 +1,5 @@
 /* =====================================================
-   CAMPUSPLUS - STUDENT ANNOUNCEMENTS
+   CAMPUSPLUS - ADMIN ANNOUNCEMENTS
    ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -13,25 +13,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const filterButtons =
         document.querySelectorAll(".announcement-filter");
 
-    const cards =
-        document.querySelectorAll(".announcement-card");
+    const list =
+        document.getElementById("announcementsList");
 
     const noAnnouncements =
         document.getElementById("noAnnouncements");
 
-    const countElement =
-        document.getElementById("announcementCount");
-
-
     let currentFilter = "all";
 
 
-    /* ================= FILTER FUNCTION ================= */
+    /* ================= FILTER + SEARCH ================= */
 
     function updateAnnouncements() {
 
         const searchText =
             searchInput.value.toLowerCase().trim();
+
+        const cards =
+            document.querySelectorAll(".announcement-card");
 
         let visibleCount = 0;
 
@@ -48,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const matchesSearch =
                 content.includes(searchText);
 
-
             const matchesFilter =
                 currentFilter === "all" ||
                 category === currentFilter;
@@ -57,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (matchesSearch && matchesFilter) {
 
                 card.style.display = "flex";
-
                 visibleCount++;
 
             } else {
@@ -69,8 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-        /* No result message */
-
         if (visibleCount === 0) {
 
             noAnnouncements.style.display = "block";
@@ -78,16 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
 
             noAnnouncements.style.display = "none";
-
-        }
-
-
-        /* Update count */
-
-        if (countElement) {
-
-            countElement.textContent =
-                visibleCount + " Updates";
 
         }
 
@@ -102,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
-    /* ================= CLEAR SEARCH ================= */
+    /* ================= CLEAR ================= */
 
     clearButton.addEventListener(
         "click",
@@ -132,13 +117,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 });
 
-
                 button.classList.add("active");
-
 
                 currentFilter =
                     button.dataset.filter;
-
 
                 updateAnnouncements();
 
@@ -148,8 +130,75 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* Initial */
+    /* ================= ADD ================= */
+
+    const addButton =
+        document.getElementById("addAnnouncementBtn");
+
+
+    addButton.addEventListener(
+        "click",
+        function () {
+
+            alert(
+                "Add Announcement form will be connected to the backend later."
+            );
+
+        }
+    );
+
+
+    /* ================= INITIAL ================= */
 
     updateAnnouncements();
 
 });
+
+
+/* =====================================================
+   EDIT ANNOUNCEMENT
+   ===================================================== */
+
+function editAnnouncement(button) {
+
+    const card =
+        button.closest(".announcement-card");
+
+    const title =
+        card.querySelector("h3").textContent.trim();
+
+    alert(
+        'Edit announcement: "' + title + '"'
+    );
+
+}
+
+
+/* =====================================================
+   DELETE ANNOUNCEMENT
+   ===================================================== */
+
+function deleteAnnouncement(button) {
+
+    const card =
+        button.closest(".announcement-card");
+
+    const title =
+        card.querySelector("h3").textContent.trim();
+
+
+    const confirmation =
+        confirm(
+            'Are you sure you want to delete "' +
+            title +
+            '"?'
+        );
+
+
+    if (confirmation) {
+
+        card.remove();
+
+    }
+
+}

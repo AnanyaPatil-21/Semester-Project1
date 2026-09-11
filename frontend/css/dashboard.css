@@ -1,6 +1,8 @@
 /* =========================================================
-   CAMPUSPLUS - DASHBOARD COMMON CSS
-   Theme: Professional, Simple, Solid Colours
+   CAMPUSPLUS DASHBOARD ONLY
+   IMPORTANT:
+   All styles are scoped inside .dashboard-layout
+   so other CampusPlus pages are NOT affected.
    ========================================================= */
 
 
@@ -12,33 +14,41 @@
 
 
 /* =========================================================
-   GENERAL RESET
+   DASHBOARD RESET
+   ONLY DASHBOARD PAGE
    ========================================================= */
 
-* {
-    margin: 0;
-    padding: 0;
+.dashboard-layout,
+.dashboard-layout * {
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
 
-body {
+/* =========================================================
+   DASHBOARD BODY AREA
+   ========================================================= */
+
+.dashboard-layout {
     min-height: 100vh;
+    width: 100%;
     background: #f4f7fb;
+
     color: #27364a;
+
     font-family: "Roboto", sans-serif;
+
+    display: flex;
 }
 
 
 /* =========================================================
    SIDEBAR
+   DASHBOARD ONLY
    ========================================================= */
 
-.sidebar {
+.dashboard-layout .sidebar {
     position: fixed;
+
     top: 0;
     left: 0;
 
@@ -54,15 +64,18 @@ body {
 
     overflow-y: auto;
     overflow-x: hidden;
+
+    flex-shrink: 0;
 }
 
 
 /* =========================================================
    SIDEBAR HEADER
+   FOR STUDENT DASHBOARD
    ========================================================= */
 
-.sidebar-header {
-    height: 82px;
+.dashboard-layout .sidebar-header {
+    min-height: 82px;
 
     display: flex;
     align-items: center;
@@ -74,10 +87,10 @@ body {
 
 
 /* =========================================================
-   LOGO
+   STUDENT SIDEBAR LOGO
    ========================================================= */
 
-.logo {
+.dashboard-layout .logo {
     display: flex;
     align-items: center;
 
@@ -86,12 +99,47 @@ body {
     color: #ffffff;
 
     font-family: "Poppins", sans-serif;
+
     font-size: 20px;
     font-weight: 700;
 }
 
-.logo i {
-    font-size: 20px;
+
+/* =========================================================
+   ADMIN SIDEBAR LOGO
+   ========================================================= */
+
+.dashboard-layout .sidebar-logo {
+    min-height: 82px;
+
+    padding: 20px 28px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.dashboard-layout .sidebar-logo h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.dashboard-layout .sidebar-logo span {
+    margin-top: 3px;
+
+    color: #cbdced;
+
+    font-family: "Roboto", sans-serif;
+
+    font-size: 12px;
 }
 
 
@@ -99,7 +147,7 @@ body {
    SIDEBAR NAVIGATION
    ========================================================= */
 
-.sidebar-nav {
+.dashboard-layout .sidebar-nav {
     display: flex;
     flex-direction: column;
 
@@ -113,9 +161,8 @@ body {
    NAVIGATION ITEM
    ========================================================= */
 
-.nav-item {
+.dashboard-layout .nav-item {
     width: 100%;
-
     min-height: 50px;
 
     display: flex;
@@ -132,17 +179,37 @@ body {
     text-decoration: none;
 
     font-family: "Poppins", sans-serif;
+
     font-size: 14px;
     font-weight: 500;
 
-    transition: background-color 0.2s ease,
-                color 0.2s ease;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
 
-/* Navigation icon */
+/* =========================================================
+   DASHBOARD NAV ICON
+   ========================================================= */
 
-.nav-item i {
+.dashboard-layout .nav-item .nav-icon {
+    width: 20px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    font-size: 16px;
+}
+
+
+/* Font Awesome icon support */
+
+.dashboard-layout .nav-item i {
     width: 20px;
 
     text-align: center;
@@ -157,8 +224,9 @@ body {
    NAVIGATION HOVER
    ========================================================= */
 
-.nav-item:hover {
+.dashboard-layout .nav-item:hover {
     background: #1d4f7d;
+
     color: #ffffff;
 }
 
@@ -167,8 +235,9 @@ body {
    ACTIVE NAVIGATION
    ========================================================= */
 
-.nav-item.active {
+.dashboard-layout .nav-item.active {
     background: #2563eb;
+
     color: #ffffff;
 
     font-weight: 600;
@@ -176,33 +245,52 @@ body {
 
 
 /* =========================================================
-   SIDEBAR FOOTER
+   SIDEBAR BOTTOM
+   ADMIN
    ========================================================= */
 
-.sidebar-footer {
+.dashboard-layout .sidebar-bottom {
     margin-top: auto;
 
     padding: 15px 14px 22px;
 }
 
 
-/* Logout */
+/* =========================================================
+   SIDEBAR FOOTER
+   STUDENT
+   ========================================================= */
 
-.nav-item.logout {
+.dashboard-layout .sidebar-footer {
+    margin-top: auto;
+
+    padding: 15px 14px 22px;
+}
+
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+.dashboard-layout .logout-btn,
+.dashboard-layout .nav-item.logout {
     color: #dbe7f3;
 }
 
-.nav-item.logout:hover {
+.dashboard-layout .logout-btn:hover,
+.dashboard-layout .nav-item.logout:hover {
     background: #1d4f7d;
+
     color: #ffffff;
 }
 
 
 /* =========================================================
    MAIN CONTENT
+   STUDENT DASHBOARD
    ========================================================= */
 
-.main-content {
+.dashboard-layout .main-content {
     margin-left: 270px;
 
     width: calc(100% - 270px);
@@ -211,18 +299,40 @@ body {
 
     background: #f4f7fb;
 
-    padding: 0;
+    overflow-x: hidden;
+
+    flex: 1;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ADMIN DASHBOARD
+   ========================================================= */
+
+.dashboard-layout .dashboard-main {
+    margin-left: 270px;
+
+    width: calc(100% - 270px);
+
+    min-height: 100vh;
+
+    background: #f4f7fb;
 
     overflow-x: hidden;
+
+    flex: 1;
 }
 
 
 /* =========================================================
    TOPBAR
+   STUDENT DASHBOARD
    ========================================================= */
 
-.topbar {
+.dashboard-layout .topbar {
     width: 100%;
+
     min-height: 82px;
 
     background: #ffffff;
@@ -232,10 +342,41 @@ body {
     padding: 0 35px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     position: relative;
+
+    z-index: 10;
+}
+
+
+/* =========================================================
+   TOPBAR
+   ADMIN DASHBOARD
+   ========================================================= */
+
+.dashboard-layout .dashboard-topbar {
+    width: 100%;
+
+    min-height: 82px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e1e7ef;
+
+    padding: 0 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    position: relative;
+
     z-index: 10;
 }
 
@@ -244,20 +385,46 @@ body {
    TOPBAR LEFT
    ========================================================= */
 
-.topbar-left {
+.dashboard-layout .topbar-left {
     display: flex;
+
     align-items: center;
 
     gap: 15px;
 }
 
 
-/* Menu toggle */
+/* =========================================================
+   ADMIN MENU BUTTON
+   ========================================================= */
 
-.menu-toggle {
+.dashboard-layout .menu-button {
+    display: none;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #123b63;
+
+    font-size: 21px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   STUDENT MENU BUTTON
+   ========================================================= */
+
+.dashboard-layout .menu-toggle {
     display: none;
 
     border: none;
+
     background: transparent;
 
     color: #123b63;
@@ -268,9 +435,11 @@ body {
 }
 
 
-/* Topbar heading */
+/* =========================================================
+   STUDENT TOPBAR TITLE
+   ========================================================= */
 
-.topbar-left h2 {
+.dashboard-layout .topbar-left h2 {
     margin: 0;
 
     color: #123b63;
@@ -278,13 +447,11 @@ body {
     font-family: "Poppins", sans-serif;
 
     font-size: 18px;
+
     font-weight: 600;
 }
 
-
-/* Topbar small text */
-
-.topbar-left span {
+.dashboard-layout .topbar-left span {
     display: block;
 
     margin-top: 2px;
@@ -298,20 +465,45 @@ body {
 
 
 /* =========================================================
-   STUDENT INFORMATION
+   ADMIN TOPBAR TITLE
    ========================================================= */
 
-.student-info {
+.dashboard-layout .topbar-title h2 {
+    margin: 0;
+
+    color: #123b63;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 600;
+}
+
+.dashboard-layout .topbar-title p {
+    margin: 3px 0 0;
+
+    color: #6b7280;
+
+    font-family: "Roboto", sans-serif;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   STUDENT PROFILE
+   ========================================================= */
+
+.dashboard-layout .student-info {
     display: flex;
+
     align-items: center;
 
     gap: 10px;
 }
 
-
-/* Avatar */
-
-.student-avatar {
+.dashboard-layout .student-avatar {
     width: 40px;
     height: 40px;
 
@@ -320,6 +512,7 @@ body {
     background: #e8f0f8;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -328,26 +521,25 @@ body {
     font-size: 16px;
 }
 
-
-/* Student details */
-
-.student-details {
+.dashboard-layout .student-details {
     display: flex;
+
     flex-direction: column;
 
     gap: 2px;
 }
 
-.student-details strong {
+.dashboard-layout .student-details strong {
     color: #27364a;
 
     font-family: "Poppins", sans-serif;
 
     font-size: 13px;
+
     font-weight: 600;
 }
 
-.student-details span {
+.dashboard-layout .student-details span {
     color: #7b8794;
 
     font-family: "Roboto", sans-serif;
@@ -357,10 +549,69 @@ body {
 
 
 /* =========================================================
-   PAGE CONTENT
+   ADMIN PROFILE
    ========================================================= */
 
-.page-content {
+.dashboard-layout .student-profile {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.dashboard-layout .profile-avatar {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #e8f0f8;
+
+    color: #123b63;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.dashboard-layout .profile-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.dashboard-layout .profile-info strong {
+    color: #27364a;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+}
+
+.dashboard-layout .profile-info span {
+    color: #7b8794;
+
+    font-family: "Roboto", sans-serif;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   STUDENT PAGE CONTENT
+   ========================================================= */
+
+.dashboard-layout .page-content {
     width: 100%;
 
     padding: 35px;
@@ -371,22 +622,23 @@ body {
    COMMON PAGE TITLE
    ========================================================= */
 
-.page-title {
+.dashboard-layout .page-title {
     margin-bottom: 28px;
 }
 
-.page-title h1 {
+.dashboard-layout .page-title h1 {
     color: #123b63;
 
     font-family: "Poppins", sans-serif;
 
     font-size: 28px;
+
     font-weight: 700;
 
     line-height: 1.3;
 }
 
-.page-title p {
+.dashboard-layout .page-title p {
     margin-top: 7px;
 
     color: #6b7280;
@@ -400,17 +652,18 @@ body {
 
 
 /* =========================================================
-   COMMON CARD
+   COMMON DASHBOARD CARD
    ========================================================= */
 
-.card {
+.dashboard-layout .card {
     background: #ffffff;
 
     border: 1px solid #e1e7ef;
 
     border-radius: 12px;
 
-    box-shadow: 0 5px 18px rgba(18, 59, 99, 0.06);
+    box-shadow:
+        0 5px 18px rgba(18, 59, 99, 0.06);
 
     padding: 25px;
 }
@@ -420,10 +673,11 @@ body {
    COMMON BUTTON
    ========================================================= */
 
-.primary-btn {
+.dashboard-layout .primary-btn {
     border: none;
 
     background: #123b63;
+
     color: #ffffff;
 
     padding: 11px 18px;
@@ -433,6 +687,7 @@ body {
     font-family: "Poppins", sans-serif;
 
     font-size: 13px;
+
     font-weight: 600;
 
     cursor: pointer;
@@ -440,8 +695,584 @@ body {
     transition: background-color 0.2s ease;
 }
 
-.primary-btn:hover {
+.dashboard-layout .primary-btn:hover {
     background: #0d2f4f;
+}
+
+
+/* =========================================================
+   ADMIN DASHBOARD CONTENT
+   ========================================================= */
+
+.dashboard-layout .dashboard-content {
+    width: 100%;
+
+    padding: 35px;
+}
+
+
+/* =========================================================
+   ADMIN WELCOME SECTION
+   ========================================================= */
+
+.dashboard-layout .welcome-section {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #e1e7ef;
+
+    border-radius: 12px;
+
+    padding: 28px;
+
+    margin-bottom: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    box-shadow:
+        0 5px 18px rgba(18, 59, 99, 0.05);
+}
+
+.dashboard-layout .welcome-label {
+    margin-bottom: 5px;
+
+    color: #2563eb;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+}
+
+.dashboard-layout .welcome-section h1 {
+    margin: 0;
+
+    color: #123b63;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 28px;
+
+    font-weight: 700;
+}
+
+.dashboard-layout .welcome-section > div > p:last-child {
+    margin-top: 7px;
+
+    color: #6b7280;
+
+    font-family: "Roboto", sans-serif;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.dashboard-layout .btn-primary {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 20px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: background-color 0.2s ease;
+}
+
+.dashboard-layout .btn-primary:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.dashboard-layout .dashboard-stats {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   STAT CARD
+   ========================================================= */
+
+.dashboard-layout .stat-card {
+    min-width: 0;
+
+    background: #ffffff;
+
+    border: 1px solid #e1e7ef;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow:
+        0 5px 18px rgba(18, 59, 99, 0.05);
+}
+
+.dashboard-layout .stat-card span {
+    display: block;
+
+    color: #6b7280;
+
+    font-family: "Roboto", sans-serif;
+
+    font-size: 13px;
+}
+
+.dashboard-layout .stat-card h3 {
+    margin-top: 3px;
+
+    color: #123b63;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 25px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   STAT ICON
+   ========================================================= */
+
+.dashboard-layout .stat-icon {
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #e8f0f8;
+
+    color: #123b63;
+
+    font-size: 19px;
+}
+
+.dashboard-layout .stat-icon.pending {
+    background: #fff4d6;
+    color: #b77900;
+}
+
+.dashboard-layout .stat-icon.progress {
+    background: #e8f0ff;
+    color: #2563eb;
+}
+
+.dashboard-layout .stat-icon.completed {
+    background: #e6f7ef;
+    color: #15803d;
+}
+
+
+/* =========================================================
+   DASHBOARD GRID
+   ========================================================= */
+
+.dashboard-layout .dashboard-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(300px, 1fr);
+
+    gap: 22px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   DASHBOARD CARD
+   ========================================================= */
+
+.dashboard-layout .dashboard-card {
+    min-width: 0;
+
+    background: #ffffff;
+
+    border: 1px solid #e1e7ef;
+
+    border-radius: 12px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 5px 18px rgba(18, 59, 99, 0.05);
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.dashboard-layout .card-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.dashboard-layout .card-header h2 {
+    margin: 0;
+
+    color: #123b63;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+.dashboard-layout .card-header p {
+    margin-top: 4px;
+
+    color: #7b8794;
+
+    font-family: "Roboto", sans-serif;
+
+    font-size: 12px;
+}
+
+.dashboard-layout .card-header > a {
+    color: #2563eb;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+.dashboard-layout .card-header > a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   COMPLAINT LIST
+   ========================================================= */
+
+.dashboard-layout .complaint-list {
+    width: 100%;
+}
+
+.dashboard-layout .complaint-row {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #edf1f5;
+}
+
+.dashboard-layout .complaint-row:last-child {
+    border-bottom: none;
+}
+
+.dashboard-layout .complaint-info {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.dashboard-layout .complaint-info strong {
+    color: #27364a;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.dashboard-layout .complaint-info span {
+    color: #7b8794;
+
+    font-family: "Roboto", sans-serif;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.dashboard-layout .status {
+    flex-shrink: 0;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-family: "Roboto", sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 500;
+}
+
+.dashboard-layout .status-pending {
+    background: #fff4d6;
+
+    color: #a66b00;
+}
+
+.dashboard-layout .status-progress {
+    background: #e8f0ff;
+
+    color: #2563eb;
+}
+
+.dashboard-layout .status-completed {
+    background: #e6f7ef;
+
+    color: #15803d;
+}
+
+
+/* =========================================================
+   SYSTEM STATUS
+   ========================================================= */
+
+.dashboard-layout .system-status-list {
+    width: 100%;
+}
+
+.dashboard-layout .system-status-item {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #edf1f5;
+}
+
+.dashboard-layout .system-status-item:last-child {
+    border-bottom: none;
+}
+
+.dashboard-layout .system-status-name {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #27364a;
+
+    font-family: "Roboto", sans-serif;
+
+    font-size: 13px;
+}
+
+.dashboard-layout .system-status-item strong {
+    color: #15803d;
+
+    font-family: "Roboto", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   STATUS DOT
+   ========================================================= */
+
+.dashboard-layout .status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    display: inline-block;
+
+    flex-shrink: 0;
+}
+
+.dashboard-layout .status-dot.online {
+    background: #22c55e;
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+   ========================================================= */
+
+.dashboard-layout .quick-actions-card {
+    width: 100%;
+}
+
+.dashboard-layout .quick-actions {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.dashboard-layout .quick-action {
+    min-width: 0;
+
+    padding: 18px;
+
+    border: 1px solid #e1e7ef;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    text-decoration: none;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.dashboard-layout .quick-action:hover {
+    border-color: #2563eb;
+
+    background: #f8fbff;
+}
+
+.dashboard-layout .quick-action > span {
+    color: #2563eb;
+
+    font-size: 20px;
+}
+
+.dashboard-layout .quick-action strong {
+    color: #123b63;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.dashboard-layout .quick-action small {
+    color: #7b8794;
+
+    font-family: "Roboto", sans-serif;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   SIDEBAR OVERLAY
+   DASHBOARD ONLY
+   ========================================================= */
+
+.dashboard-layout .sidebar-overlay {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    z-index: 900;
 }
 
 
@@ -449,33 +1280,56 @@ body {
    TABLET
    ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
 
-    .sidebar {
+    .dashboard-layout .sidebar {
         width: 240px;
     }
 
-    .main-content {
+    .dashboard-layout .main-content,
+    .dashboard-layout .dashboard-main {
         margin-left: 240px;
+
         width: calc(100% - 240px);
     }
 
-    .sidebar-header {
-        padding: 0 22px;
+    .dashboard-layout .sidebar-header,
+    .dashboard-layout .sidebar-logo {
+        padding-left: 22px;
+        padding-right: 22px;
     }
 
-    .nav-item {
-        padding: 0 15px;
-
-        font-size: 13px;
-    }
-
-    .topbar {
-        padding: 0 25px;
-    }
-
-    .page-content {
+    .dashboard-layout .dashboard-content,
+    .dashboard-layout .page-content {
         padding: 28px;
+    }
+
+    .dashboard-layout .dashboard-stats {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-layout .quick-actions {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .dashboard-layout .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-layout .welcome-section {
+        align-items: flex-start;
+
+        flex-direction: column;
     }
 }
 
@@ -486,9 +1340,9 @@ body {
 
 @media (max-width: 768px) {
 
-    /* Sidebar becomes hidden off-screen */
+    /* Sidebar moves off screen */
 
-    .sidebar {
+    .dashboard-layout .sidebar {
         width: 250px;
 
         left: -250px;
@@ -497,16 +1351,17 @@ body {
     }
 
 
-    /* When JavaScript adds this class */
+    /* JavaScript opens sidebar */
 
-    .sidebar.show {
+    .dashboard-layout .sidebar.show {
         left: 0;
     }
 
 
-    /* Main content takes full width */
+    /* Main content FULL WIDTH */
 
-    .main-content {
+    .dashboard-layout .main-content,
+    .dashboard-layout .dashboard-main {
         margin-left: 0;
 
         width: 100%;
@@ -515,42 +1370,80 @@ body {
 
     /* Topbar */
 
-    .topbar {
+    .dashboard-layout .topbar,
+    .dashboard-layout .dashboard-topbar {
         min-height: 70px;
 
         padding: 0 18px;
     }
 
 
-    /* Show menu button */
+    /* Student menu */
 
-    .menu-toggle {
+    .dashboard-layout .menu-toggle {
         display: flex;
 
         align-items: center;
+
         justify-content: center;
 
         width: 38px;
+
         height: 38px;
     }
 
 
-    /* Hide detailed student information on smaller screens */
+    /* Admin menu */
 
-    .student-details {
+    .dashboard-layout .menu-button {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+
+    /* Student information */
+
+    .dashboard-layout .student-details {
         display: none;
     }
 
 
-    /* Page */
+    /* Admin profile text */
 
-    .page-content {
+    .dashboard-layout .profile-info {
+        display: none;
+    }
+
+
+    /* Content */
+
+    .dashboard-layout .page-content,
+    .dashboard-layout .dashboard-content {
         padding: 22px 18px;
     }
 
 
-    .page-title h1 {
-        font-size: 24px;
+    /* Dashboard statistics */
+
+    .dashboard-layout .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Quick actions */
+
+    .dashboard-layout .quick-actions {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Overlay */
+
+    .dashboard-layout .sidebar.show ~ .sidebar-overlay {
+        display: block;
     }
 }
 
@@ -561,27 +1454,44 @@ body {
 
 @media (max-width: 480px) {
 
-    .topbar {
+    .dashboard-layout .topbar,
+    .dashboard-layout .dashboard-topbar {
         padding: 0 14px;
     }
 
-    .topbar-left {
+    .dashboard-layout .topbar-left {
         gap: 8px;
     }
 
-    .topbar-left h2 {
+    .dashboard-layout .topbar-left h2 {
         font-size: 16px;
     }
 
-    .page-content {
+    .dashboard-layout .page-content,
+    .dashboard-layout .dashboard-content {
         padding: 20px 14px;
     }
 
-    .page-title h1 {
+    .dashboard-layout .page-title h1 {
         font-size: 22px;
     }
 
-    .card {
+    .dashboard-layout .dashboard-card,
+    .dashboard-layout .card {
         padding: 18px;
+    }
+
+    .dashboard-layout .welcome-section {
+        padding: 20px;
+    }
+
+    .dashboard-layout .welcome-section h1 {
+        font-size: 23px;
+    }
+
+    .dashboard-layout .complaint-row {
+        align-items: flex-start;
+
+        flex-direction: column;
     }
 }

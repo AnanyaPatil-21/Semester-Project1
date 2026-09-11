@@ -2,197 +2,89 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Announcements | CampusPlus</title>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
-          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
-    <!-- Common Dashboard CSS -->
-    <link rel="stylesheet" href="../../css/dashboard.css">
-
-    <!-- Announcements CSS -->
+    <!-- Announcement CSS ONLY -->
     <link rel="stylesheet" href="../../css/announcements.css">
-</head>
 
+</head>
 
 <body>
 
-    <!-- ================= SIDEBAR ================= -->
+    <!-- ================= HEADER ================= -->
 
-    <aside class="sidebar">
+    <header class="announcement-header">
 
-        <div class="sidebar-header">
+        <div class="header-inner">
 
-            <div class="logo">
-                <i class="fa-solid fa-building-columns"></i>
-                <span>CampusPlus</span>
+            <div class="brand">
+                <h2>CampusPlus</h2>
+                <span>Student Portal</span>
             </div>
 
-        </div>
-
-
-        <nav class="sidebar-nav">
-
-            <a href="dashboard.html" class="nav-item">
-                <i class="fa-solid fa-house"></i>
-                <span>Dashboard</span>
-            </a>
-
-
-            <a href="complaints.html" class="nav-item">
-                <i class="fa-solid fa-file-circle-exclamation"></i>
-                <span>Complaints</span>
-            </a>
-
-
-            <a href="campus-directory.html" class="nav-item">
-                <i class="fa-solid fa-map-location-dot"></i>
-                <span>Campus Directory</span>
-            </a>
-
-
-            <!-- ACTIVE -->
-
-            <a href="announcements.html" class="nav-item active">
-                <i class="fa-solid fa-bullhorn"></i>
-                <span>Announcements</span>
-            </a>
-
-
-            <a href="profile.html" class="nav-item">
-                <i class="fa-solid fa-user"></i>
-                <span>Profile</span>
-            </a>
-
-        </nav>
-
-
-        <div class="sidebar-footer">
-
-            <a href="../../index.html" class="nav-item logout">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>Logout</span>
+            <a href="dashboard.html" class="back-link">
+                ← Dashboard
             </a>
 
         </div>
 
-    </aside>
+    </header>
 
 
+    <!-- ================= MAIN ================= -->
 
-    <!-- ================= MAIN CONTENT ================= -->
+    <main class="announcement-page">
 
-    <main class="main-content">
+        <!-- Page Heading -->
 
+        <section class="page-heading">
 
-        <!-- TOPBAR -->
+            <div>
 
-        <header class="topbar">
+                <p class="heading-label">
+                    CAMPUS UPDATES
+                </p>
 
-            <div class="topbar-left">
+                <h1>Announcements</h1>
 
-                <button class="menu-toggle"
-                        type="button"
-                        aria-label="Toggle Menu">
-
-                    <i class="fa-solid fa-bars"></i>
-
-                </button>
-
-
-                <div>
-
-                    <h2>Student Portal</h2>
-
-                    <span>CampusPlus</span>
-
-                </div>
+                <p>
+                    Stay updated with important notices and campus updates.
+                </p>
 
             </div>
 
+            <div class="update-count">
 
-            <div class="student-info">
+                <span class="count-icon">●</span>
 
-                <div class="student-avatar">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-
-                <div class="student-details">
-
-                    <strong>Student</strong>
-
-                    <span>CampusPlus Student</span>
-
-                </div>
+                <span id="announcementCount">
+                    4 Updates
+                </span>
 
             </div>
 
-        </header>
+        </section>
 
 
+        <!-- ================= SEARCH ================= -->
 
-        <!-- ================= PAGE ================= -->
+        <section class="search-section">
 
-        <section class="announcements-page">
+            <div class="search-box">
 
-
-            <!-- PAGE HEADER -->
-
-            <div class="announcements-header">
-
-                <div class="header-title">
-
-                    <div class="announcement-title-icon">
-
-                        <i class="fa-solid fa-bullhorn"></i>
-
-                    </div>
-
-
-                    <div>
-
-                        <h1>Announcements</h1>
-
-                        <p>
-                            Stay updated with important campus notices
-                            and announcements.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="announcement-count">
-
-                    <i class="fa-solid fa-bell"></i>
-
-                    <span id="announcementCount">
-                        4 Updates
-                    </span>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- SEARCH -->
-
-            <div class="announcement-search">
-
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <span class="search-icon">⌕</span>
 
                 <input
                     type="text"
@@ -203,340 +95,269 @@
                 <button
                     type="button"
                     id="clearAnnouncementSearch"
-                    aria-label="Clear search">
-
-                    <i class="fa-solid fa-xmark"></i>
-
+                    class="clear-search"
+                >
+                    ×
                 </button>
 
             </div>
 
+        </section>
 
 
-            <!-- FILTERS -->
+        <!-- ================= FILTERS ================= -->
 
-            <div class="announcement-filters">
+        <section class="announcement-filters">
 
-                <button
-                    class="announcement-filter active"
-                    data-filter="all">
+            <button
+                class="announcement-filter active"
+                data-filter="all"
+            >
+                All
+            </button>
 
-                    <i class="fa-solid fa-border-all"></i>
-                    All
+            <button
+                class="announcement-filter"
+                data-filter="complaint-update"
+            >
+                Complaint Updates
+            </button>
 
-                </button>
+            <button
+                class="announcement-filter"
+                data-filter="maintenance"
+            >
+                Maintenance
+            </button>
 
+            <button
+                class="announcement-filter"
+                data-filter="important"
+            >
+                Important
+            </button>
 
-                <button
-                    class="announcement-filter"
-                    data-filter="important">
-
-                    <i class="fa-solid fa-circle-exclamation"></i>
-                    Important
-
-                </button>
-
-
-                <button
-                    class="announcement-filter"
-                    data-filter="maintenance">
-
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-                    Maintenance
-
-                </button>
-
-
-                <button
-                    class="announcement-filter"
-                    data-filter="complaint-update">
-
-                    <i class="fa-solid fa-rotate"></i>
-                    Complaint Updates
-
-                </button>
-
-            </div>
+        </section>
 
 
+        <!-- ================= ANNOUNCEMENTS ================= -->
 
-            <!-- ANNOUNCEMENTS -->
+        <section
+            class="announcements-list"
+            id="announcementsList"
+        >
 
-            <div
-                class="announcements-list"
-                id="announcementsList">
+            <!-- 1 -->
 
+            <article
+                class="announcement-card"
+                data-category="important"
+            >
 
-                <!-- CARD 1 -->
+                <div class="announcement-icon important">
+                    !
+                </div>
 
-                <article
-                    class="announcement-card"
-                    data-category="important">
+                <div class="announcement-content">
 
-                    <div class="announcement-card-icon important-icon">
+                    <div class="announcement-top">
 
-                        <i class="fa-solid fa-circle-exclamation"></i>
+                        <div>
 
-                    </div>
-
-
-                    <div class="announcement-content">
-
-                        <div class="announcement-top">
-
-                            <div>
-
-                                <span class="announcement-category important">
-
-                                    <i class="fa-solid fa-circle-exclamation"></i>
-
-                                    Important
-
-                                </span>
-
-
-                                <h3>
-                                    Complaint Resolution Update
-                                </h3>
-
-                            </div>
-
-
-                            <span class="announcement-date">
-
-                                <i class="fa-regular fa-calendar"></i>
-
-                                10 September 2026
-
+                            <span class="category important">
+                                Important
                             </span>
+
+                            <h3>
+                                Complaint Resolution Update
+                            </h3>
 
                         </div>
 
-
-                        <p>
-                            Students are requested to check the status
-                            of their submitted complaints. Recently resolved
-                            complaints have been updated in the system.
-                        </p>
+                        <span class="announcement-date">
+                            10 September 2026
+                        </span>
 
                     </div>
 
-                </article>
-
-
-
-                <!-- CARD 2 -->
-
-                <article
-                    class="announcement-card"
-                    data-category="maintenance">
-
-                    <div class="announcement-card-icon maintenance-icon">
-
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-
-                    </div>
-
-
-                    <div class="announcement-content">
-
-                        <div class="announcement-top">
-
-                            <div>
-
-                                <span class="announcement-category maintenance">
-
-                                    <i class="fa-solid fa-screwdriver-wrench"></i>
-
-                                    Maintenance
-
-                                </span>
-
-
-                                <h3>
-                                    Water Cooler Maintenance
-                                </h3>
-
-                            </div>
-
-
-                            <span class="announcement-date">
-
-                                <i class="fa-regular fa-calendar"></i>
-
-                                08 September 2026
-
-                            </span>
-
-                        </div>
-
-
-                        <p>
-                            Maintenance work is currently in progress
-                            for selected water coolers on the campus.
-                            Students are requested to use alternate
-                            facilities until further notice.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- CARD 3 -->
-
-                <article
-                    class="announcement-card"
-                    data-category="complaint-update">
-
-                    <div class="announcement-card-icon update-icon">
-
-                        <i class="fa-solid fa-rotate"></i>
-
-                    </div>
-
-
-                    <div class="announcement-content">
-
-                        <div class="announcement-top">
-
-                            <div>
-
-                                <span class="announcement-category update">
-
-                                    <i class="fa-solid fa-rotate"></i>
-
-                                    Complaint Update
-
-                                </span>
-
-
-                                <h3>
-                                    Complaint Processing Time
-                                </h3>
-
-                            </div>
-
-
-                            <span class="announcement-date">
-
-                                <i class="fa-regular fa-calendar"></i>
-
-                                05 September 2026
-
-                            </span>
-
-                        </div>
-
-
-                        <p>
-                            Some complaints may require additional
-                            processing time depending on the nature
-                            of the issue and maintenance requirements.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- CARD 4 -->
-
-                <article
-                    class="announcement-card"
-                    data-category="complaint-update">
-
-                    <div class="announcement-card-icon update-icon">
-
-                        <i class="fa-solid fa-check"></i>
-
-                    </div>
-
-
-                    <div class="announcement-content">
-
-                        <div class="announcement-top">
-
-                            <div>
-
-                                <span class="announcement-category update">
-
-                                    <i class="fa-solid fa-check"></i>
-
-                                    Resolved
-
-                                </span>
-
-
-                                <h3>
-                                    Classroom Facility Complaints Resolved
-                                </h3>
-
-                            </div>
-
-
-                            <span class="announcement-date">
-
-                                <i class="fa-regular fa-calendar"></i>
-
-                                02 September 2026
-
-                            </span>
-
-                        </div>
-
-
-                        <p>
-                            Reported classroom facility complaints have
-                            been reviewed and the required maintenance
-                            work has been completed.
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-
-
-            <!-- NO RESULTS -->
-
-            <div
-                class="no-announcements"
-                id="noAnnouncements">
-
-                <div class="no-announcement-icon">
-
-                    <i class="fa-solid fa-bullhorn"></i>
+                    <p>
+                        Students are requested to check the status of their
+                        submitted complaints. Recently resolved complaints
+                        have been updated in the complaint system.
+                    </p>
 
                 </div>
 
-
-                <h3>
-                    No announcements found
-                </h3>
+            </article>
 
 
-                <p>
-                    Try another keyword or select a different category.
-                </p>
+            <!-- 2 -->
 
+            <article
+                class="announcement-card"
+                data-category="maintenance"
+            >
+
+                <div class="announcement-icon maintenance">
+                    ⚙
+                </div>
+
+                <div class="announcement-content">
+
+                    <div class="announcement-top">
+
+                        <div>
+
+                            <span class="category maintenance">
+                                Maintenance
+                            </span>
+
+                            <h3>
+                                Water Supply Complaint Update
+                            </h3>
+
+                        </div>
+
+                        <span class="announcement-date">
+                            08 September 2026
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Maintenance work is currently in progress regarding
+                        water supply complaints reported on the campus.
+                        Further updates will be provided after the work
+                        is completed.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- 3 -->
+
+            <article
+                class="announcement-card"
+                data-category="complaint-update"
+            >
+
+                <div class="announcement-icon update">
+                    ↻
+                </div>
+
+                <div class="announcement-content">
+
+                    <div class="announcement-top">
+
+                        <div>
+
+                            <span class="category update">
+                                Complaint Update
+                            </span>
+
+                            <h3>
+                                Complaint Processing Time
+                            </h3>
+
+                        </div>
+
+                        <span class="announcement-date">
+                            05 September 2026
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Some complaints may require additional processing time
+                        depending on the type of issue and availability of
+                        maintenance staff.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- 4 -->
+
+            <article
+                class="announcement-card"
+                data-category="complaint-update"
+            >
+
+                <div class="announcement-icon resolved">
+                    ✓
+                </div>
+
+                <div class="announcement-content">
+
+                    <div class="announcement-top">
+
+                        <div>
+
+                            <span class="category resolved">
+                                Resolved
+                            </span>
+
+                            <h3>
+                                Classroom Facility Complaints Resolved
+                            </h3>
+
+                        </div>
+
+                        <span class="announcement-date">
+                            02 September 2026
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Reported classroom facility complaints have been
+                        reviewed and the required maintenance work has
+                        been completed.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ================= NO RESULTS ================= -->
+
+        <section
+            class="no-announcements"
+            id="noAnnouncements"
+        >
+
+            <div class="no-icon">
+                !
             </div>
+
+            <h3>No announcements found</h3>
+
+            <p>
+                Try another keyword or select a different category.
+            </p>
 
         </section>
 
     </main>
 
 
+    <!-- ================= FOOTER ================= -->
 
-    <!-- JAVASCRIPT -->
+    <footer class="announcement-footer">
 
-    <script src="../../js/main.js"></script>
+        <p>
+            © 2026 CampusPlus. Smart Campus Management System.
+        </p>
 
-    <script src="../../js/dashboard.js"></script>
+    </footer>
+
 
     <script src="../../js/announcements.js"></script>
 

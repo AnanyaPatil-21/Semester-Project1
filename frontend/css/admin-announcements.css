@@ -1,24 +1,15 @@
 /* =====================================================
-   CAMPUSPLUS - STUDENT ANNOUNCEMENTS
+   CAMPUSPLUS - ADMIN ANNOUNCEMENTS
    Standalone CSS
    ===================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
-
-
-/* ================= RESET ================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-
-html {
-    scroll-behavior: smooth;
-}
-
 
 body {
     min-height: 100vh;
@@ -27,15 +18,10 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-
-/* ================= HEADER ================= */
-
 .announcement-header {
-    width: 100%;
     height: 72px;
     background: #123b63;
 }
-
 
 .header-inner {
     width: 92%;
@@ -48,63 +34,44 @@ body {
     justify-content: space-between;
 }
 
-
 .brand {
     display: flex;
     align-items: baseline;
     gap: 10px;
 }
 
-
 .brand h2 {
-    color: #ffffff;
+    color: white;
     font-family: "Poppins", sans-serif;
     font-size: 22px;
-    font-weight: 700;
 }
-
 
 .brand span {
     color: #dbe7f3;
     font-size: 12px;
 }
 
-
 .back-link {
-    color: #ffffff;
+    color: white;
     text-decoration: none;
     font-family: "Poppins", sans-serif;
     font-size: 13px;
-    font-weight: 500;
 }
-
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
-
-/* ================= MAIN ================= */
 
 .announcement-page {
     width: 92%;
     max-width: 1250px;
-    margin: 0 auto;
+    margin: auto;
     padding: 38px 0 50px;
 }
 
-
-/* ================= PAGE HEADING ================= */
-
 .page-heading {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 25px;
-
+    align-items: center;
+    gap: 20px;
     margin-bottom: 28px;
 }
-
 
 .heading-label {
     color: #1f6f9f;
@@ -112,64 +79,47 @@ body {
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 1px;
-    margin-bottom: 5px;
 }
-
 
 .page-heading h1 {
     color: #123b63;
     font-family: "Poppins", sans-serif;
     font-size: 29px;
-    font-weight: 700;
+    margin: 4px 0;
 }
 
-
 .page-heading p:last-child {
-    margin-top: 5px;
     color: #6b7280;
     font-size: 14px;
 }
 
+.add-button {
+    padding: 11px 18px;
 
-/* ================= COUNT ================= */
+    background: #123b63;
+    color: white;
 
-.update-count {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    padding: 10px 15px;
-
-    background: #ffffff;
-    border: 1px solid #e1e7ef;
-    border-radius: 8px;
-
-    color: #123b63;
+    border: none;
+    border-radius: 7px;
 
     font-family: "Poppins", sans-serif;
     font-size: 13px;
     font-weight: 600;
+
+    cursor: pointer;
 }
 
-
-.count-icon {
-    font-size: 10px;
-    color: #2563eb;
+.add-button:hover {
+    background: #0d2f4f;
 }
-
-
-/* ================= SEARCH ================= */
 
 .search-section {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
-
 
 .search-box {
     position: relative;
-    width: 100%;
 }
-
 
 .search-box input {
     width: 100%;
@@ -177,66 +127,46 @@ body {
 
     padding: 0 45px;
 
+    background: white;
+
     border: 1px solid #d5dde7;
     border-radius: 8px;
 
     outline: none;
 
-    background: #ffffff;
-
-    color: #27364a;
-
     font-family: "Roboto", sans-serif;
-    font-size: 14px;
 }
-
-
-.search-box input:focus {
-    border-color: #1f6f9f;
-}
-
 
 .search-icon {
     position: absolute;
     left: 16px;
-    top: 50%;
-
-    transform: translateY(-50%);
+    top: 13px;
 
     color: #6b7280;
     font-size: 20px;
 }
-
 
 .clear-search {
     position: absolute;
     right: 14px;
-    top: 50%;
+    top: 11px;
 
-    transform: translateY(-50%);
-
-    background: transparent;
-    color: #6b7280;
-
+    background: none;
     font-size: 20px;
+    color: #6b7280;
 }
-
-
-/* ================= FILTERS ================= */
 
 .announcement-filters {
     display: flex;
     flex-wrap: wrap;
     gap: 9px;
-
     margin-bottom: 25px;
 }
-
 
 .announcement-filter {
     padding: 9px 15px;
 
-    background: #ffffff;
+    background: white;
 
     border: 1px solid #d5dde7;
     border-radius: 7px;
@@ -245,26 +175,15 @@ body {
 
     font-family: "Poppins", sans-serif;
     font-size: 12px;
-    font-weight: 500;
 
     cursor: pointer;
 }
 
-
-.announcement-filter:hover {
-    border-color: #1f6f9f;
-    color: #123b63;
-}
-
-
 .announcement-filter.active {
     background: #123b63;
+    color: white;
     border-color: #123b63;
-    color: #ffffff;
 }
-
-
-/* ================= LIST ================= */
 
 .announcements-list {
     display: flex;
@@ -272,23 +191,19 @@ body {
     gap: 15px;
 }
 
-
-/* ================= CARD ================= */
-
 .announcement-card {
     display: flex;
     gap: 18px;
 
     padding: 22px;
 
-    background: #ffffff;
+    background: white;
 
     border: 1px solid #e1e7ef;
     border-radius: 11px;
 
     box-shadow: 0 5px 18px rgba(18, 59, 99, 0.05);
 }
-
 
 .announcement-icon {
     width: 44px;
@@ -302,42 +217,32 @@ body {
 
     border-radius: 8px;
 
-    font-family: "Poppins", sans-serif;
     font-weight: 700;
 }
-
 
 .announcement-icon.important {
     background: #fef2f2;
     color: #b91c1c;
 }
 
-
 .announcement-icon.maintenance {
     background: #fff7ed;
     color: #c2410c;
 }
-
 
 .announcement-icon.update {
     background: #eff6ff;
     color: #2563eb;
 }
 
-
 .announcement-icon.resolved {
     background: #ecfdf5;
     color: #15803d;
 }
 
-
-/* ================= CONTENT ================= */
-
 .announcement-content {
     flex: 1;
-    min-width: 0;
 }
-
 
 .announcement-top {
     display: flex;
@@ -345,87 +250,105 @@ body {
     gap: 20px;
 }
 
-
 .category {
-    display: inline-block;
-
-    margin-bottom: 5px;
+    display: block;
+    margin-bottom: 4px;
 
     font-family: "Poppins", sans-serif;
     font-size: 11px;
     font-weight: 600;
 }
-
 
 .category.important {
     color: #b91c1c;
 }
 
-
 .category.maintenance {
     color: #c2410c;
 }
-
 
 .category.update {
     color: #2563eb;
 }
 
-
 .category.resolved {
     color: #15803d;
 }
 
-
 .announcement-card h3 {
     color: #123b63;
-
     font-family: "Poppins", sans-serif;
     font-size: 16px;
-    font-weight: 600;
 }
 
-
 .announcement-date {
-    flex-shrink: 0;
-
     color: #7b8794;
-
     font-size: 11px;
 }
 
-
-.announcement-content p {
+.announcement-content > p {
     margin-top: 10px;
-
     color: #5f6b7a;
-
     font-size: 13px;
     line-height: 1.7;
 }
 
+/* ================= ADMIN ACTIONS ================= */
 
-/* ================= NO RESULTS ================= */
+.announcement-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 7px 13px;
+
+    border-radius: 6px;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.edit-btn {
+    background: #edf4ff;
+    color: #2563eb;
+}
+
+.delete-btn {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.edit-btn:hover {
+    background: #dbeafe;
+}
+
+.delete-btn:hover {
+    background: #fee2e2;
+}
 
 .no-announcements {
     display: none;
-
     text-align: center;
 
-    background: #ffffff;
+    padding: 45px 20px;
+
+    background: white;
 
     border: 1px solid #e1e7ef;
     border-radius: 11px;
-
-    padding: 45px 20px;
 }
 
-
 .no-icon {
+    margin: auto auto 12px;
+
     width: 45px;
     height: 45px;
-
-    margin: 0 auto 12px;
 
     display: flex;
     align-items: center;
@@ -435,26 +358,18 @@ body {
 
     background: #edf2f7;
     color: #123b63;
-
-    font-weight: 700;
 }
-
 
 .no-announcements h3 {
     color: #123b63;
     font-family: "Poppins", sans-serif;
-    font-size: 16px;
 }
-
 
 .no-announcements p {
     margin-top: 5px;
     color: #6b7280;
     font-size: 13px;
 }
-
-
-/* ================= FOOTER ================= */
 
 .announcement-footer {
     padding: 20px;
@@ -464,27 +379,14 @@ body {
     text-align: center;
 
     color: #dbe7f3;
-
     font-size: 12px;
 }
 
-
-/* ================= RESPONSIVE ================= */
-
 @media (max-width: 700px) {
-
-    .announcement-page {
-        width: 94%;
-        padding-top: 28px;
-    }
 
     .page-heading {
         align-items: flex-start;
         flex-direction: column;
-    }
-
-    .update-count {
-        align-self: flex-start;
     }
 
     .announcement-top {
@@ -494,32 +396,6 @@ body {
 
     .announcement-card {
         padding: 17px;
-    }
-
-}
-
-
-@media (max-width: 480px) {
-
-    .brand {
-        gap: 5px;
-    }
-
-    .brand span {
-        display: none;
-    }
-
-    .page-heading h1 {
-        font-size: 24px;
-    }
-
-    .announcement-card {
-        gap: 12px;
-    }
-
-    .announcement-icon {
-        width: 38px;
-        height: 38px;
     }
 
 }
