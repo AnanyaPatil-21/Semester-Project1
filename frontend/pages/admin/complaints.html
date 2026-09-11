@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Complaints | CampusPlus</title>
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/complaints.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="header-container">
+
+            <div class="logo">
+                <h2>CampusPlus</h2>
+            </div>
+
+            <nav>
+
+                <ul class="nav-links">
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="../../index.html">Home</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main class="complaints-section">
+
+        <div class="complaints-container">
+
+            <div class="complaints-heading">
+
+                <p class="page-label">ADMIN PORTAL</p>
+
+                <h1>Manage Complaints</h1>
+
+                <p>
+                    Review, validate and resolve complaints submitted by students.
+                </p>
+
+            </div>
+
+
+            <!-- FILTERS -->
+
+            <div class="filter-card">
+
+                <h2>Filter Complaints</h2>
+
+                <div class="filter-row">
+
+                    <div class="form-group">
+
+                        <label for="statusFilter">
+                            Status
+                        </label>
+
+                        <select id="statusFilter">
+
+                            <option value="all">
+                                All Status
+                            </option>
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="In Progress">
+                                In Progress
+                            </option>
+
+                            <option value="Resolved">
+                                Resolved
+                            </option>
+
+                            <option value="Rejected">
+                                Rejected
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="categoryFilter">
+                            Category
+                        </label>
+
+                        <select id="categoryFilter">
+
+                            <option value="all">
+                                All Categories
+                            </option>
+
+                            <option value="Lab">
+                                Lab
+                            </option>
+
+                            <option value="Classroom">
+                                Classroom
+                            </option>
+
+                            <option value="Auditorium Hall">
+                                Auditorium Hall
+                            </option>
+
+                            <option value="Water Cooler">
+                                Water Cooler
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="adminLocationFilter">
+                            Location
+                        </label>
+
+                        <select id="adminLocationFilter">
+
+                            <option value="all">
+                                All Locations
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="dateFilter">
+                            Date
+                        </label>
+
+                        <input type="date" id="dateFilter">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- COMPLAINTS -->
+
+            <div class="admin-complaints-card">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>All Complaints</h2>
+
+                        <p>
+                            Review complaints submitted by students.
+                        </p>
+
+                    </div>
+
+                    <span id="complaintCount" class="complaint-count">
+                        0 Complaints
+                    </span>
+
+                </div>
+
+
+                <div id="adminComplaintsList">
+
+                    <!-- JavaScript will load complaints -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+
+        <p>
+            &copy; 2026 CampusPlus. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/complaints.js"></script>
+
+</body>
+
+</html>

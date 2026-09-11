@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Complaint Details | CampusPlus</title>
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/complaints.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="header-container">
+
+            <div class="logo">
+                <h2>CampusPlus</h2>
+            </div>
+
+            <nav>
+
+                <ul class="nav-links">
+
+                    <li>
+                        <a href="complaints.html">Complaints</a>
+                    </li>
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main class="complaints-section">
+
+        <div class="details-container">
+
+            <div class="complaints-heading">
+
+                <p class="page-label">ADMIN PORTAL</p>
+
+                <h1>Complaint Details</h1>
+
+                <p>
+                    Review and manage the selected complaint.
+                </p>
+
+            </div>
+
+
+            <div id="complaintDetails" class="details-card">
+
+                <!-- JavaScript will load details -->
+
+            </div>
+
+
+            <div id="adminActions" class="admin-actions">
+
+                <div class="form-group">
+
+                    <label for="adminRemark">
+                        Admin Remark
+                    </label>
+
+                    <textarea
+                        id="adminRemark"
+                        rows="4"
+                        maxlength="300"
+                        placeholder="Enter your remark..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="action-buttons">
+
+                    <button
+                        type="button"
+                        id="validateBtn"
+                        class="btn-primary"
+                    >
+                        Validate Complaint
+                    </button>
+
+                    <button
+                        type="button"
+                        id="rejectBtn"
+                        class="btn-danger"
+                    >
+                        Reject Complaint
+                    </button>
+
+                    <button
+                        type="button"
+                        id="resolveBtn"
+                        class="btn-success"
+                    >
+                        Mark as Resolved
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+
+        <p>
+            &copy; 2026 CampusPlus. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/complaints.js"></script>
+
+</body>
+
+</html>

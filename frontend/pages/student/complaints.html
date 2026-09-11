@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Complaints | CampusPlus</title>
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <!-- Complaint CSS -->
+    <link rel="stylesheet" href="../../css/complaints.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="header-container">
+
+            <div class="logo">
+                <h2>CampusPlus</h2>
+            </div>
+
+            <nav>
+                <ul class="nav-links">
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="../../index.html">Home</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="complaints-section">
+
+        <div class="complaints-container">
+
+            <!-- PAGE HEADING -->
+
+            <div class="complaints-heading">
+
+                <p class="page-label">STUDENT PORTAL</p>
+
+                <h1>Complaints</h1>
+
+                <p>
+                    Submit a new complaint or track the status of your existing complaints.
+                </p>
+
+            </div>
+
+
+            <!-- ACTION CARDS -->
+
+            <div class="complaint-actions">
+
+                <!-- Submit Complaint -->
+
+                <div class="complaint-action-card">
+
+                    <div class="action-icon">
+                        +
+                    </div>
+
+                    <div class="action-content">
+
+                        <h2>Submit New Complaint</h2>
+
+                        <p>
+                            Report an issue related to labs, classrooms,
+                            auditorium, water coolers or other campus facilities.
+                        </p>
+
+                        <a href="submit-complaint.html" class="btn-primary">
+                            Submit Complaint
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- My Complaints -->
+
+                <div class="complaint-action-card">
+
+                    <div class="action-icon">
+                        ✓
+                    </div>
+
+                    <div class="action-content">
+
+                        <h2>My Complaints</h2>
+
+                        <p>
+                            View your submitted complaints and check their
+                            current status and admin remarks.
+                        </p>
+
+                        <a href="my-complaints.html" class="btn-secondary">
+                            View My Complaints
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATUS SUMMARY -->
+
+            <section class="status-summary">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Complaint Status</h2>
+
+                        <p>
+                            Overview of your complaint status.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="status-cards">
+
+                    <div class="status-card">
+
+                        <div class="status-number pending-number">
+                            01
+                        </div>
+
+                        <div>
+                            <h3>Pending</h3>
+                            <p>Waiting for admin validation</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="status-card">
+
+                        <div class="status-number progress-number">
+                            01
+                        </div>
+
+                        <div>
+                            <h3>In Progress</h3>
+                            <p>Complaint is being handled</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="status-card">
+
+                        <div class="status-number resolved-number">
+                            01
+                        </div>
+
+                        <div>
+                            <h3>Resolved</h3>
+                            <p>Complaint has been completed</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="status-card">
+
+                        <div class="status-number rejected-number">
+                            00
+                        </div>
+
+                        <div>
+                            <h3>Rejected</h3>
+                            <p>Complaint was rejected</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RECENT COMPLAINTS -->
+
+            <section class="recent-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Recent Complaints</h2>
+
+                        <p>
+                            Recently submitted complaints.
+                        </p>
+                    </div>
+
+                    <a href="my-complaints.html" class="view-link">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div id="recentComplaints" class="recent-complaints">
+
+                    <!-- JavaScript will load complaints here -->
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <p>
+            &copy; 2026 CampusPlus. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/complaints.js"></script>
+
+</body>
+
+</html>

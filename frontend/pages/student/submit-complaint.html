@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Submit Complaint | CampusPlus</title>
+
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/complaints.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="header-container">
+
+            <div class="logo">
+                <h2>CampusPlus</h2>
+            </div>
+
+            <nav>
+                <ul class="nav-links">
+
+                    <li>
+                        <a href="complaints.html">Complaints</a>
+                    </li>
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main class="complaints-section">
+
+        <div class="form-container">
+
+            <div class="complaints-heading">
+
+                <p class="page-label">STUDENT PORTAL</p>
+
+                <h1>Submit Complaint</h1>
+
+                <p>
+                    Provide the details of the issue so that it can be reviewed and resolved.
+                </p>
+
+            </div>
+
+
+            <div class="complaint-form-card">
+
+                <form id="complaintForm">
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="form-section">
+
+                        <h2>Complaint Information</h2>
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="complaintCategory">
+                                    Complaint Category
+                                </label>
+
+                                <select id="complaintCategory" required>
+
+                                    <option value="">
+                                        Select Category
+                                    </option>
+
+                                    <option value="Lab">
+                                        Lab
+                                    </option>
+
+                                    <option value="Classroom">
+                                        Classroom
+                                    </option>
+
+                                    <option value="Auditorium Hall">
+                                        Auditorium Hall
+                                    </option>
+
+                                    <option value="Water Cooler">
+                                        Water Cooler
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="locationType">
+                                    Location Type
+                                </label>
+
+                                <select id="locationType" required>
+
+                                    <option value="">
+                                        Select Location Type
+                                    </option>
+
+                                    <option value="Lab">
+                                        Lab
+                                    </option>
+
+                                    <option value="Classroom">
+                                        Classroom
+                                    </option>
+
+                                    <option value="Auditorium Hall">
+                                        Auditorium Hall
+                                    </option>
+
+                                    <option value="Water Cooler">
+                                        Water Cooler
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DEPARTMENT -->
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="department">
+                                    Department
+                                </label>
+
+                                <select id="department">
+
+                                    <option value="">
+                                        Select Department
+                                    </option>
+
+                                    <option value="CE">
+                                        Computer Engineering
+                                    </option>
+
+                                    <option value="CSE(DS)">
+                                        CSE (Data Science)
+                                    </option>
+
+                                    <option value="Electrical">
+                                        Electrical Engineering
+                                    </option>
+
+                                    <option value="Mechanical">
+                                        Mechanical Engineering
+                                    </option>
+
+                                    <option value="EnTC">
+                                        Electronics & Telecommunication
+                                    </option>
+
+                                    <option value="Civil">
+                                        Civil Engineering
+                                    </option>
+
+                                    <option value="AIDS">
+                                        Artificial Intelligence & Data Science
+                                    </option>
+
+                                    <option value="AIML">
+                                        Artificial Intelligence & Machine Learning
+                                    </option>
+
+                                    <option value="IT">
+                                        Information Technology
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="location">
+                                    Location
+                                </label>
+
+                                <select id="location" required>
+
+                                    <option value="">
+                                        Select Location
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ISSUE -->
+
+                    <div class="form-section">
+
+                        <h2>Select Issue</h2>
+
+                        <p class="section-description">
+                            Select the issue that best describes your complaint.
+                        </p>
+
+                        <div id="issueCards" class="issue-grid">
+
+                            <!-- JavaScript will generate issue cards -->
+
+                        </div>
+
+                        <input type="hidden" id="selectedIssue" required>
+
+                    </div>
+
+
+                    <!-- DETAILS -->
+
+                    <div class="form-section">
+
+                        <h2>Complaint Details</h2>
+
+
+                        <div class="form-group">
+
+                            <label for="complaintSubject">
+                                Complaint Subject
+                            </label>
+
+                            <input
+                                type="text"
+                                id="complaintSubject"
+                                placeholder="Enter complaint subject"
+                                maxlength="100"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="description">
+                                Description
+                            </label>
+
+                            <textarea
+                                id="description"
+                                rows="5"
+                                maxlength="300"
+                                placeholder="Describe the issue briefly..."
+                                required
+                            ></textarea>
+
+                            <div class="character-count">
+                                <span id="characterCount">0</span>/300 characters
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="complaintImage">
+                                Image <span class="optional">(Optional)</span>
+                            </label>
+
+                            <input
+                                type="file"
+                                id="complaintImage"
+                                accept="image/*"
+                            >
+
+                            <small>
+                                Upload an image if it helps explain the issue.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="form-buttons">
+
+                        <a href="complaints.html" class="btn-secondary">
+                            Cancel
+                        </a>
+
+                        <button type="submit" class="btn-primary">
+                            Submit Complaint
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+
+        <p>
+            &copy; 2026 CampusPlus. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/complaints.js"></script>
+
+</body>
+
+</html>

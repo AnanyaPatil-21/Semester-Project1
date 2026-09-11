@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -10,22 +11,32 @@
     <title>Manage Announcements | CampusPlus</title>
 
 
-    <!-- Font Awesome Icons -->
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Font Awesome -->
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 
-    <!-- Existing Admin Dashboard CSS -->
+    <!-- Dashboard CSS -->
 
     <link rel="stylesheet"
           href="../../css/dashboard.css">
 
-    <link rel="stylesheet"
-          href="../../css/admin.css">
 
-
-    <!-- Shared Announcements CSS -->
+    <!-- Announcement CSS -->
 
     <link rel="stylesheet"
           href="../../css/announcements.css">
@@ -33,21 +44,126 @@
 </head>
 
 
-<body class="admin-page">
+<body>
 
 
-    <!-- =========================
-         ADMIN SIDEBAR
-    ========================== -->
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
 
-    <aside class="sidebar">
+<aside class="sidebar">
+
+    <div class="sidebar-header">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-building-columns"></i>
+
+            <span>CampusPlus</span>
+
+        </div>
+
+    </div>
 
 
-        <div class="sidebar-header">
+    <nav class="sidebar-nav">
 
-            <div class="logo">
+        <a href="dashboard.html"
+           class="nav-item">
 
-                <i class="fa-solid fa-building-columns"></i>
+            <i class="fa-solid fa-house"></i>
+
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <a href="complaints.html"
+           class="nav-item">
+
+            <i class="fa-solid fa-file-circle-exclamation"></i>
+
+            <span>Complaints</span>
+
+        </a>
+
+
+        <a href="campus-directory.html"
+           class="nav-item">
+
+            <i class="fa-solid fa-map-location-dot"></i>
+
+            <span>Campus Directory</span>
+
+        </a>
+
+
+        <!-- ACTIVE -->
+
+        <a href="announcements.html"
+           class="nav-item active">
+
+            <i class="fa-solid fa-bullhorn"></i>
+
+            <span>Announcements</span>
+
+        </a>
+
+
+        <a href="profile.html"
+           class="nav-item">
+
+            <i class="fa-solid fa-user"></i>
+
+            <span>Profile</span>
+
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-footer">
+
+        <a href="../../index.html"
+           class="nav-item logout">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span>Logout</span>
+
+        </a>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="main-content">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div class="topbar-left">
+
+            <button class="menu-toggle"
+                    type="button"
+                    aria-label="Toggle Menu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <div>
+
+                <h2>Admin Portal</h2>
 
                 <span>CampusPlus</span>
 
@@ -56,990 +172,392 @@
         </div>
 
 
+        <div class="student-info">
 
-        <!-- ADMIN NAVIGATION -->
+            <div class="student-avatar">
 
-        <nav class="sidebar-nav">
+                <i class="fa-solid fa-user-shield"></i>
 
-
-            <a href="dashboard.html"
-               class="nav-item">
-
-                <i class="fa-solid fa-house"></i>
-
-                <span>Dashboard</span>
-
-            </a>
+            </div>
 
 
-            <a href="complaints.html"
-               class="nav-item">
+            <div class="student-details">
 
-                <i class="fa-solid fa-file-circle-exclamation"></i>
+                <strong>Administrator</strong>
 
-                <span>Complaints</span>
+                <span>CampusPlus Admin</span>
 
-            </a>
-
-
-            <a href="announcements.html"
-               class="nav-item active">
-
-                <i class="fa-solid fa-bullhorn"></i>
-
-                <span>Announcements</span>
-
-            </a>
-
-
-            <a href="campus-directory.html"
-               class="nav-item">
-
-                <i class="fa-solid fa-map-location-dot"></i>
-
-                <span>Campus Directory</span>
-
-            </a>
-
-
-            <a href="system-status.html"
-               class="nav-item">
-
-                <i class="fa-solid fa-chart-line"></i>
-
-                <span>System Status</span>
-
-            </a>
-
-
-        </nav>
-
-
-
-        <!-- LOGOUT -->
-
-        <div class="sidebar-footer">
-
-            <a href="../../index.html"
-               class="nav-item logout">
-
-                <i class="fa-solid fa-right-from-bracket"></i>
-
-                <span>Logout</span>
-
-            </a>
+            </div>
 
         </div>
 
+    </header>
 
-    </aside>
 
 
+    <!-- =================================================
+         ANNOUNCEMENTS PAGE
+    ================================================== -->
 
-    <!-- =========================
-         MAIN CONTENT
-    ========================== -->
+    <section class="announcements-page">
 
-    <main class="main-content">
 
+        <!-- PAGE HEADER -->
 
-        <!-- =========================
-             TOPBAR
-        ========================== -->
+        <div class="announcements-header">
 
-        <header class="topbar">
+            <div class="header-title">
 
-
-            <div class="topbar-left">
-
-
-                <button class="menu-toggle"
-                        type="button"
-                        aria-label="Toggle Menu">
-
-                    <i class="fa-solid fa-bars"></i>
-
-                </button>
-
-
-                <div>
-
-                    <h2>Admin Portal</h2>
-
-                    <span>CampusPlus</span>
-
-                </div>
-
-
-            </div>
-
-
-
-            <div class="student-info">
-
-
-                <div class="student-avatar">
-
-                    <i class="fa-solid fa-user-shield"></i>
-
-                </div>
-
-
-                <div class="student-details">
-
-                    <strong>Administrator</strong>
-
-                    <span>CampusPlus Admin</span>
-
-                </div>
-
-
-            </div>
-
-
-        </header>
-
-
-
-        <!-- =========================
-             ANNOUNCEMENTS PAGE
-        ========================== -->
-
-        <section class="announcements-page admin-announcements-page">
-
-
-            <!-- =========================
-                 PAGE HEADER
-            ========================== -->
-
-            <div class="announcements-header">
-
-
-                <div class="header-title">
-
-
-                    <div class="announcement-title-icon">
-
-                        <i class="fa-solid fa-bullhorn"></i>
-
-                    </div>
-
-
-                    <div>
-
-                        <h1>Manage Announcements</h1>
-
-                        <p>
-                            Create and manage important announcements
-                            related to campus complaints.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <!-- ADD ANNOUNCEMENT BUTTON -->
-
-                <button class="add-announcement-btn"
-                        id="openAddAnnouncement">
-
-                    <i class="fa-solid fa-plus"></i>
-
-                    Add Announcement
-
-                </button>
-
-
-            </div>
-
-
-
-            <!-- =========================
-                 ANNOUNCEMENT SUMMARY
-            ========================== -->
-
-            <div class="announcement-summary">
-
-
-                <div class="summary-card">
-
-
-                    <div class="summary-icon">
-
-                        <i class="fa-solid fa-bullhorn"></i>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>Total Announcements</span>
-
-                        <h3 id="totalAnnouncements">
-                            4
-                        </h3>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="summary-card">
-
-
-                    <div class="summary-icon">
-
-                        <i class="fa-solid fa-circle-exclamation"></i>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>Important Notices</span>
-
-                        <h3>
-                            1
-                        </h3>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="summary-card">
-
-
-                    <div class="summary-icon">
-
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>Maintenance Updates</span>
-
-                        <h3>
-                            1
-                        </h3>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- =========================
-                 SEARCH AND FILTER
-            ========================== -->
-
-            <div class="announcement-controls">
-
-
-                <!-- SEARCH -->
-
-                <div class="announcement-search">
-
-
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-
-
-                    <input type="text"
-                           id="announcementSearch"
-                           placeholder="Search announcements...">
-
-
-                    <button type="button"
-                            id="clearAnnouncementSearch"
-                            aria-label="Clear search">
-
-                        <i class="fa-solid fa-xmark"></i>
-
-                    </button>
-
-
-                </div>
-
-
-
-                <!-- FILTER -->
-
-                <div class="announcement-filters">
-
-
-                    <button class="announcement-filter active"
-                            data-filter="all">
-
-                        All
-
-                    </button>
-
-
-                    <button class="announcement-filter"
-                            data-filter="complaint-update">
-
-                        Complaint Updates
-
-                    </button>
-
-
-                    <button class="announcement-filter"
-                            data-filter="maintenance">
-
-                        Maintenance
-
-                    </button>
-
-
-                    <button class="announcement-filter"
-                            data-filter="important">
-
-                        Important
-
-                    </button>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- =========================
-                 ANNOUNCEMENTS LIST
-            ========================== -->
-
-            <div class="announcements-list"
-                 id="announcementsList">
-
-
-                <!-- ANNOUNCEMENT 1 -->
-
-                <article class="announcement-card admin-announcement-card"
-                         data-category="important">
-
-
-                    <div class="announcement-card-icon important-icon">
-
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-
-                    </div>
-
-
-
-                    <div class="announcement-content">
-
-
-                        <div class="announcement-top">
-
-
-                            <div>
-
-
-                                <span class="announcement-category important">
-
-                                    <i class="fa-solid fa-circle-exclamation"></i>
-
-                                    Important
-
-                                </span>
-
-
-                                <h3>
-                                    Complaint Resolution Update
-                                </h3>
-
-
-                            </div>
-
-
-
-                            <span class="announcement-date">
-
-                                <i class="fa-regular fa-calendar"></i>
-
-                                10 September 2026
-
-                            </span>
-
-
-                        </div>
-
-
-
-                        <p>
-
-                            Students are requested to check the status of their
-                            submitted complaints. Recently resolved complaints
-                            have been updated in the complaint system.
-
-                        </p>
-
-
-                        <!-- ADMIN ACTIONS -->
-
-                        <div class="announcement-actions">
-
-
-                            <button class="action-btn edit-btn"
-                                    type="button">
-
-                                <i class="fa-solid fa-pen"></i>
-
-                                Edit
-
-                            </button>
-
-
-                            <button class="action-btn delete-btn"
-                                    type="button">
-
-                                <i class="fa-solid fa-trash"></i>
-
-                                Delete
-
-                            </button>
-
-
-                        </div>
-
-
-                    </div>
-
-
-                </article>
-
-
-
-                <!-- ANNOUNCEMENT 2 -->
-
-                <article class="announcement-card admin-announcement-card"
-                         data-category="maintenance">
-
-
-                    <div class="announcement-card-icon maintenance-icon">
-
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-
-                    </div>
-
-
-
-                    <div class="announcement-content">
-
-
-                        <div class="announcement-top">
-
-
-                            <div>
-
-
-                                <span class="announcement-category maintenance">
-
-                                    <i class="fa-solid fa-screwdriver-wrench"></i>
-
-                                    Maintenance
-
-                                </span>
-
-
-                                <h3>
-                                    Water Supply Complaint Update
-                                </h3>
-
-
-                            </div>
-
-
-
-                            <span class="announcement-date">
-
-                                <i class="fa-regular fa-calendar"></i>
-
-                                08 September 2026
-
-                            </span>
-
-
-                        </div>
-
-
-
-                        <p>
-
-                            Maintenance work is currently in progress regarding
-                            water supply complaints reported on campus.
-                            Further updates will be provided after resolution.
-
-                        </p>
-
-
-
-                        <div class="announcement-actions">
-
-
-                            <button class="action-btn edit-btn"
-                                    type="button">
-
-                                <i class="fa-solid fa-pen"></i>
-
-                                Edit
-
-                            </button>
-
-
-                            <button class="action-btn delete-btn"
-                                    type="button">
-
-                                <i class="fa-solid fa-trash"></i>
-
-                                Delete
-
-                            </button>
-
-
-                        </div>
-
-
-                    </div>
-
-
-                </article>
-
-
-
-                <!-- ANNOUNCEMENT 3 -->
-
-                <article class="announcement-card admin-announcement-card"
-                         data-category="complaint-update">
-
-
-                    <div class="announcement-card-icon update-icon">
-
-                        <i class="fa-solid fa-rotate"></i>
-
-                    </div>
-
-
-
-                    <div class="announcement-content">
-
-
-                        <div class="announcement-top">
-
-
-                            <div>
-
-
-                                <span class="announcement-category update">
-
-                                    <i class="fa-solid fa-rotate"></i>
-
-                                    Complaint Update
-
-                                </span>
-
-
-                                <h3>
-                                    Complaint Processing Time
-                                </h3>
-
-
-                            </div>
-
-
-
-                            <span class="announcement-date">
-
-                                <i class="fa-regular fa-calendar"></i>
-
-                                05 September 2026
-
-                            </span>
-
-
-                        </div>
-
-
-
-                        <p>
-
-                            Students are informed that some complaints may
-                            require additional processing time depending on
-                            the type of issue and maintenance availability.
-
-                        </p>
-
-
-
-                        <div class="announcement-actions">
-
-
-                            <button class="action-btn edit-btn"
-                                    type="button">
-
-                                <i class="fa-solid fa-pen"></i>
-
-                                Edit
-
-                            </button>
-
-
-                            <button class="action-btn delete-btn"
-                                    type="button">
-
-                                <i class="fa-solid fa-trash"></i>
-
-                                Delete
-
-                            </button>
-
-
-                        </div>
-
-
-                    </div>
-
-
-                </article>
-
-
-
-                <!-- ANNOUNCEMENT 4 -->
-
-                <article class="announcement-card admin-announcement-card"
-                         data-category="complaint-update">
-
-
-                    <div class="announcement-card-icon update-icon">
-
-                        <i class="fa-solid fa-check"></i>
-
-                    </div>
-
-
-
-                    <div class="announcement-content">
-
-
-                        <div class="announcement-top">
-
-
-                            <div>
-
-
-                                <span class="announcement-category update">
-
-                                    <i class="fa-solid fa-check"></i>
-
-                                    Resolved
-
-                                </span>
-
-
-                                <h3>
-                                    Classroom Facility Complaints Resolved
-                                </h3>
-
-
-                            </div>
-
-
-
-                            <span class="announcement-date">
-
-                                <i class="fa-regular fa-calendar"></i>
-
-                                02 September 2026
-
-                            </span>
-
-
-                        </div>
-
-
-
-                        <p>
-
-                            Reported classroom facility complaints have been
-                            reviewed and the required maintenance work has
-                            been completed.
-
-                        </p>
-
-
-
-                        <div class="announcement-actions">
-
-
-                            <button class="action-btn edit-btn"
-                                    type="button">
-
-                                <i class="fa-solid fa-pen"></i>
-
-                                Edit
-
-                            </button>
-
-
-                            <button class="action-btn delete-btn"
-                                    type="button">
-
-                                <i class="fa-solid fa-trash"></i>
-
-                                Delete
-
-                            </button>
-
-
-                        </div>
-
-
-                    </div>
-
-
-                </article>
-
-
-            </div>
-
-
-
-            <!-- =========================
-                 NO RESULTS
-            ========================== -->
-
-            <div class="no-announcements"
-                 id="noAnnouncements">
-
-
-                <div class="no-announcement-icon">
+                <div class="announcement-title-icon">
 
                     <i class="fa-solid fa-bullhorn"></i>
 
                 </div>
 
 
-                <h3>No announcements found</h3>
-
-
-                <p>
-                    Try searching with another keyword
-                    or choose another category.
-                </p>
-
-
-            </div>
-
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =========================
-         ADD ANNOUNCEMENT MODAL
-    ========================== -->
-
-    <div class="announcement-modal"
-         id="announcementModal">
-
-
-        <div class="modal-overlay"
-             id="closeModal"></div>
-
-
-        <div class="modal-content">
-
-
-            <!-- MODAL HEADER -->
-
-            <div class="modal-header">
-
-
                 <div>
 
-                    <h2>
-                        <i class="fa-solid fa-bullhorn"></i>
-
-                        Add Announcement
-                    </h2>
-
+                    <h1>Manage Announcements</h1>
 
                     <p>
-                        Create a complaint-related announcement.
+                        Create, update and manage important campus announcements.
                     </p>
 
                 </div>
 
+            </div>
 
-                <button class="close-modal-btn"
-                        type="button"
-                        id="closeModalBtn">
 
-                    <i class="fa-solid fa-xmark"></i>
+            <div class="announcement-count">
 
-                </button>
+                <i class="fa-solid fa-bell"></i>
 
+                <span id="announcementCount">
+                    0 Updates
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             ADD ANNOUNCEMENT BUTTON
+        ================================================== -->
+
+        <div class="announcement-action-bar">
+
+            <button class="add-announcement-btn"
+                    id="openAddModal">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Announcement
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SEARCH
+        ================================================== -->
+
+        <div class="announcement-search">
+
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+            <input type="text"
+                   id="announcementSearch"
+                   placeholder="Search announcements...">
+
+            <button type="button"
+                    id="clearAnnouncementSearch"
+                    aria-label="Clear search">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FILTERS
+        ================================================== -->
+
+        <div class="announcement-filters">
+
+            <button class="announcement-filter active"
+                    data-filter="all">
+
+                <i class="fa-solid fa-border-all"></i>
+
+                All
+
+            </button>
+
+
+            <button class="announcement-filter"
+                    data-filter="important">
+
+                <i class="fa-solid fa-circle-exclamation"></i>
+
+                Important
+
+            </button>
+
+
+            <button class="announcement-filter"
+                    data-filter="maintenance">
+
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+                Maintenance
+
+            </button>
+
+
+            <button class="announcement-filter"
+                    data-filter="complaint-update">
+
+                <i class="fa-solid fa-rotate"></i>
+
+                Complaint Updates
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             ANNOUNCEMENT LIST
+        ================================================== -->
+
+        <div class="announcements-list"
+             id="announcementsList">
+
+            <!-- JavaScript will load announcements here -->
+
+        </div>
+
+
+
+        <!-- NO RESULTS -->
+
+        <div class="no-announcements"
+             id="noAnnouncements">
+
+            <div class="no-announcement-icon">
+
+                <i class="fa-solid fa-bullhorn"></i>
+
+            </div>
+
+            <h3>No announcements found</h3>
+
+            <p>
+                Try another search or add a new announcement.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- =====================================================
+     ADD / EDIT MODAL
+===================================================== -->
+
+<div class="announcement-modal"
+     id="announcementModal">
+
+
+    <div class="announcement-modal-content">
+
+
+        <!-- MODAL HEADER -->
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2 id="modalTitle">
+                    Add Announcement
+                </h2>
+
+                <p>
+                    Enter the announcement details below.
+                </p>
+
+            </div>
+
+
+            <button type="button"
+                    class="modal-close"
+                    id="closeModal">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <form id="announcementForm">
+
+
+            <input type="hidden"
+                   id="announcementId">
+
+
+            <!-- TITLE -->
+
+            <div class="announcement-form-group">
+
+                <label for="announcementTitle">
+
+                    Announcement Title
+
+                </label>
+
+                <input type="text"
+                       id="announcementTitle"
+                       placeholder="Enter announcement title"
+                       required>
 
             </div>
 
 
 
-            <!-- ANNOUNCEMENT FORM -->
+            <!-- CATEGORY -->
 
-            <form id="announcementForm">
+            <div class="announcement-form-group">
 
+                <label for="announcementCategory">
 
-                <!-- TITLE -->
+                    Category
 
-                <div class="form-group">
+                </label>
 
+                <select id="announcementCategory"
+                        required>
 
-                    <label for="announcementTitle">
+                    <option value="">
+                        Select Category
+                    </option>
 
-                        Announcement Title
+                    <option value="important">
+                        Important
+                    </option>
 
-                    </label>
+                    <option value="maintenance">
+                        Maintenance
+                    </option>
 
+                    <option value="complaint-update">
+                        Complaint Updates
+                    </option>
 
-                    <input type="text"
-                           id="announcementTitle"
-                           placeholder="Enter announcement title"
-                           required>
+                </select>
 
+            </div>
 
-                </div>
 
 
+            <!-- DATE -->
 
-                <!-- CATEGORY -->
+            <div class="announcement-form-group">
 
-                <div class="form-group">
+                <label for="announcementDate">
 
+                    Date
 
-                    <label for="announcementCategory">
+                </label>
 
-                        Category
+                <input type="date"
+                       id="announcementDate"
+                       required>
 
-                    </label>
+            </div>
 
 
-                    <select id="announcementCategory"
-                            required>
 
+            <!-- DESCRIPTION -->
 
-                        <option value="">
-                            Select category
-                        </option>
+            <div class="announcement-form-group">
 
+                <label for="announcementDescription">
 
-                        <option value="complaint-update">
-                            Complaint Update
-                        </option>
+                    Announcement Description
 
+                </label>
 
-                        <option value="maintenance">
-                            Maintenance
-                        </option>
+                <textarea id="announcementDescription"
+                          rows="5"
+                          maxlength="500"
+                          placeholder="Write announcement details..."
+                          required></textarea>
 
+                <small>
+                    Maximum 500 characters
+                </small>
 
-                        <option value="important">
-                            Important
-                        </option>
+            </div>
 
 
-                    </select>
 
+            <!-- BUTTONS -->
 
-                </div>
+            <div class="modal-actions">
 
+                <button type="button"
+                        class="cancel-btn"
+                        id="cancelModal">
 
+                    Cancel
 
-                <!-- MESSAGE -->
+                </button>
 
-                <div class="form-group">
 
+                <button type="submit"
+                        class="save-announcement-btn">
 
-                    <label for="announcementMessage">
+                    <i class="fa-solid fa-check"></i>
 
-                        Announcement Message
+                    Save Announcement
 
-                    </label>
+                </button>
 
+            </div>
 
-                    <textarea id="announcementMessage"
-                              rows="5"
-                              placeholder="Write announcement details..."
-                              required></textarea>
-
-
-                </div>
-
-
-
-                <!-- FORM BUTTONS -->
-
-                <div class="modal-actions">
-
-
-                    <button type="button"
-                            class="cancel-btn"
-                            id="cancelAnnouncement">
-
-                        Cancel
-
-                    </button>
-
-
-                    <button type="submit"
-                            class="save-announcement-btn">
-
-                        <i class="fa-solid fa-paper-plane"></i>
-
-                        Publish Announcement
-
-                    </button>
-
-
-                </div>
-
-
-            </form>
-
-
-        </div>
-
+        </form>
 
     </div>
 
+</div>
 
 
-    <!-- JAVASCRIPT -->
 
-    <script src="../../js/main.js"></script>
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
-    <script src="../../js/dashboard.js"></script>
+<script src="../../js/main.js"></script>
 
-    <script src="../../js/admin.js"></script>
+<script src="../../js/dashboard.js"></script>
 
-    <script src="../../js/announcements.js"></script>
+<script src="../../js/announcements.js"></script>
 
 
 </body>

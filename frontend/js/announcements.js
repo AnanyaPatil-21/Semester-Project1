@@ -1,1568 +1,732 @@
-/* =========================================
-   ANNOUNCEMENTS - CAMPUSPLUS
-   Shared JavaScript for Student and Admin
-========================================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    /* =========================================
-       ELEMENTS - COMMON
-    ========================================== */
-
-    const announcementsList =
-        document.getElementById("announcementsList");
-
-    const announcementSearch =
-        document.getElementById("announcementSearch");
-
-    const clearSearchButton =
-        document.getElementById("clearAnnouncementSearch");
-
-    const filterButtons =
-        document.querySelectorAll(".announcement-filter");
-
-    const noAnnouncements =
-        document.getElementById("noAnnouncements");
-
-    const announcementCount =
-        document.getElementById("announcementCount");
+/* =====================================================
+   CAMPUSPLUS ADMIN ANNOUNCEMENTS
+===================================================== */
 
 
-    /* =========================================
-       ELEMENTS - ADMIN SUMMARY
-    ========================================== */
+/* =====================================================
+   DEFAULT ANNOUNCEMENTS
+===================================================== */
 
-    const totalAnnouncements =
-        document.getElementById("totalAnnouncements");
+let announcements = [
 
-    const importantAnnouncements =
-        document.getElementById("importantAnnouncements");
+    {
+        id: 1,
+        title: "Complaint Resolution Update",
+        category: "important",
+        date: "2026-09-10",
+        description:
+            "Students are requested to check the status of their submitted complaints. Recently resolved complaints have been updated in the complaint system."
+    },
 
-    const maintenanceAnnouncements =
-        document.getElementById("maintenanceAnnouncements");
+    {
+        id: 2,
+        title: "Water Cooler Maintenance Update",
+        category: "maintenance",
+        date: "2026-09-08",
+        description:
+            "Maintenance work is currently in progress for water cooler facilities reported in the campus. Updates will be provided after the issue is resolved."
+    },
 
+    {
+        id: 3,
+        title: "Complaint Processing Time",
+        category: "complaint-update",
+        date: "2026-09-05",
+        description:
+            "Students are informed that some complaints may require additional processing time depending on the type of issue and availability of maintenance staff."
+    },
 
-    /* =========================================
-       ELEMENTS - ADMIN MODAL
-    ========================================== */
+    {
+        id: 4,
+        title: "Classroom Facility Complaints Resolved",
+        category: "complaint-update",
+        date: "2026-09-02",
+        description:
+            "Reported classroom facility complaints have been reviewed and the necessary maintenance work has been completed."
+    }
 
-    const openAddAnnouncement =
-        document.getElementById("openAddAnnouncement");
-
-    const announcementModal =
-        document.getElementById("announcementModal");
-
-    const closeModal =
-        document.getElementById("closeModal");
-
-    const closeModalBtn =
-        document.getElementById("closeModalBtn");
-
-    const cancelAnnouncement =
-        document.getElementById("cancelAnnouncement");
-
-    const announcementForm =
-        document.getElementById("announcementForm");
-
-    const announcementTitle =
-        document.getElementById("announcementTitle");
-
-    const announcementCategory =
-        document.getElementById("announcementCategory");
-
-    const announcementMessage =
-        document.getElementById("announcementMessage");
-
-
-    /* =========================================
-       PAGE TYPE
-    ========================================== */
-
-    const isAdminPage =
-        document.body.classList.contains("admin-page");
+];
 
 
-    /* =========================================
-       STORAGE
-    ========================================== */
 
-    const STORAGE_KEY =
-        "campusPlusAnnouncements";
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const announcementList =
+    document.getElementById("announcementsList");
+
+const announcementCount =
+    document.getElementById("announcementCount");
+
+const searchInput =
+    document.getElementById("announcementSearch");
+
+const clearSearch =
+    document.getElementById("clearAnnouncementSearch");
+
+const noAnnouncements =
+    document.getElementById("noAnnouncements");
+
+const filterButtons =
+    document.querySelectorAll(".announcement-filter");
+
+const modal =
+    document.getElementById("announcementModal");
+
+const openAddModal =
+    document.getElementById("openAddModal");
+
+const closeModal =
+    document.getElementById("closeModal");
+
+const cancelModal =
+    document.getElementById("cancelModal");
+
+const announcementForm =
+    document.getElementById("announcementForm");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const announcementId =
+    document.getElementById("announcementId");
+
+const announcementTitle =
+    document.getElementById("announcementTitle");
+
+const announcementCategory =
+    document.getElementById("announcementCategory");
+
+const announcementDate =
+    document.getElementById("announcementDate");
+
+const announcementDescription =
+    document.getElementById("announcementDescription");
 
 
-    /* =========================================
-       STATE
-    ========================================== */
 
-    let announcements = [];
+/* =====================================================
+   CURRENT FILTER
+===================================================== */
 
-    let currentFilter = "all";
-
-    let editingAnnouncementId = null;
+let currentFilter = "all";
 
 
-    /* =========================================
-       CATEGORY INFORMATION
-    ========================================== */
 
-    function getCategoryLabel(category) {
+/* =====================================================
+   CATEGORY NAME
+===================================================== */
 
-        const labels = {
+function getCategoryName(category) {
 
-            important:
-                "Important",
+    if (category === "important") {
 
-            maintenance:
-                "Maintenance",
-
-            "complaint-update":
-                "Complaint Update"
-
-        };
-
-
-        return labels[category] ||
-            "Complaint Update";
+        return "Important";
 
     }
 
+    if (category === "maintenance") {
 
-    function getCategoryIcon(category) {
-
-        const icons = {
-
-            important:
-                "fa-triangle-exclamation",
-
-            maintenance:
-                "fa-screwdriver-wrench",
-
-            "complaint-update":
-                "fa-bullhorn"
-
-        };
-
-
-        return icons[category] ||
-            "fa-bullhorn";
+        return "Maintenance";
 
     }
 
+    if (category === "complaint-update") {
 
-    function getCategoryIconClass(category) {
-
-        if (category === "important") {
-            return "important-icon";
-        }
-
-
-        if (category === "maintenance") {
-            return "maintenance-icon";
-        }
-
-
-        return "update-icon";
+        return "Complaint Update";
 
     }
 
+    return "Announcement";
 
-    /* =========================================
-       GENERATE UNIQUE ID
-    ========================================== */
-
-    function generateAnnouncementId() {
-
-        return (
-            "announcement-" +
-            Date.now() +
-            "-" +
-            Math.random()
-                .toString(36)
-                .substring(2, 9)
-        );
-
-    }
+}
 
 
-    /* =========================================
-       FORMAT DATE
-    ========================================== */
 
-    function getCurrentDate() {
+/* =====================================================
+   CATEGORY ICON
+===================================================== */
 
-        return new Date().toLocaleDateString(
-            "en-GB",
-            {
-                day: "2-digit",
-                month: "long",
-                year: "numeric"
-            }
-        );
+function getCategoryIcon(category) {
+
+    if (category === "important") {
+
+        return "fa-circle-exclamation";
 
     }
 
+    if (category === "maintenance") {
 
-    /* =========================================
-       GET INITIAL ANNOUNCEMENTS FROM HTML
+        return "fa-screwdriver-wrench";
 
-       Used only when localStorage does not
-       already contain announcements.
-    ========================================== */
+    }
 
-    function getInitialAnnouncements() {
+    return "fa-rotate";
 
-        if (!announcementsList) {
-            return [];
-        }
+}
 
 
-        const cards =
-            announcementsList.querySelectorAll(
-                ".announcement-card"
-            );
+
+/* =====================================================
+   DATE FORMAT
+===================================================== */
+
+function formatDate(dateString) {
+
+    const date = new Date(dateString + "T00:00:00");
+
+    return date.toLocaleDateString("en-IN", {
+
+        day: "2-digit",
+
+        month: "long",
+
+        year: "numeric"
+
+    });
+
+}
 
 
-        const initialAnnouncements = [];
+
+/* =====================================================
+   RENDER ANNOUNCEMENTS
+===================================================== */
+
+function renderAnnouncements() {
+
+    const searchText =
+        searchInput.value.toLowerCase().trim();
 
 
-        cards.forEach(function (card, index) {
-
-            const title =
-                card.querySelector("h3")
-                    ?.textContent
-                    .trim() || "";
+    let filteredAnnouncements =
+        announcements.filter(function (announcement) {
 
 
-            const message =
-                card.querySelector(
-                    ".announcement-content > p"
-                )
-                    ?.textContent
-                    .trim() || "";
+            const matchesFilter =
+                currentFilter === "all" ||
+                announcement.category === currentFilter;
 
 
-            const category =
-                card.dataset.category ||
-                "complaint-update";
+            const matchesSearch =
+                announcement.title
+                    .toLowerCase()
+                    .includes(searchText) ||
+
+                announcement.description
+                    .toLowerCase()
+                    .includes(searchText);
 
 
-            const date =
-                card.querySelector(
-                    ".announcement-date"
-                )
-                    ?.textContent
-                    .trim() || "";
-
-
-            if (title && message) {
-
-                initialAnnouncements.push({
-
-                    id:
-                        card.dataset.id ||
-                        "initial-" + index,
-
-                    title:
-                        title,
-
-                    message:
-                        message,
-
-                    category:
-                        category,
-
-                    categoryLabel:
-                        getCategoryLabel(category),
-
-                    date:
-                        date || getCurrentDate()
-
-                });
-
-            }
+            return matchesFilter && matchesSearch;
 
         });
 
 
-        return initialAnnouncements;
+
+    announcementList.innerHTML = "";
+
+
+
+    /* NO RESULTS */
+
+    if (filteredAnnouncements.length === 0) {
+
+        noAnnouncements.style.display = "block";
+
+    }
+
+    else {
+
+        noAnnouncements.style.display = "none";
 
     }
 
 
-    /* =========================================
-       LOAD ANNOUNCEMENTS
-    ========================================== */
 
-    function loadAnnouncements() {
+    /* CREATE CARDS */
 
-        const savedData =
-            localStorage.getItem(
-                STORAGE_KEY
-            );
+    filteredAnnouncements.forEach(function (announcement) {
 
 
-        if (savedData) {
-
-            try {
-
-                const parsedData =
-                    JSON.parse(savedData);
-
-
-                if (Array.isArray(parsedData)) {
-                    return parsedData;
-                }
-
-            }
-            catch (error) {
-
-                console.error(
-                    "Unable to load announcements:",
-                    error
-                );
-
-            }
-
-        }
-
-
-        const initialData =
-            getInitialAnnouncements();
-
-
-        if (initialData.length > 0) {
-
-            saveAnnouncements(
-                initialData
-            );
-
-        }
-
-
-        return initialData;
-
-    }
-
-
-    /* =========================================
-       SAVE ANNOUNCEMENTS
-    ========================================== */
-
-    function saveAnnouncements(data) {
-
-        localStorage.setItem(
-            STORAGE_KEY,
-            JSON.stringify(data)
-        );
-
-    }
-
-
-    /* =========================================
-       UPDATE ALL COUNTS
-    ========================================== */
-
-    function updateCounts() {
-
-        const total =
-            announcements.length;
-
-
-        const important =
-            announcements.filter(
-                function (announcement) {
-
-                    return (
-                        announcement.category ===
-                        "important"
-                    );
-
-                }
-            ).length;
-
-
-        const maintenance =
-            announcements.filter(
-                function (announcement) {
-
-                    return (
-                        announcement.category ===
-                        "maintenance"
-                    );
-
-                }
-            ).length;
-
-
-        /* STUDENT HEADER COUNT */
-
-        if (announcementCount) {
-
-            announcementCount.textContent =
-                total +
-                (
-                    total === 1
-                        ? " Update"
-                        : " Updates"
-                );
-
-        }
-
-
-        /* ADMIN SUMMARY COUNTS */
-
-        if (totalAnnouncements) {
-
-            totalAnnouncements.textContent =
-                total;
-
-        }
-
-
-        if (importantAnnouncements) {
-
-            importantAnnouncements.textContent =
-                important;
-
-        }
-
-
-        if (maintenanceAnnouncements) {
-
-            maintenanceAnnouncements.textContent =
-                maintenance;
-
-        }
-
-    }
-
-
-    /* =========================================
-       CREATE ANNOUNCEMENT CARD
-    ========================================== */
-
-    function createAnnouncementCard(
-        announcement
-    ) {
-
-        const article =
+        const card =
             document.createElement("article");
 
 
-        article.className =
-            "announcement-card";
+        card.className = "announcement-card";
 
 
-        article.dataset.id =
-            announcement.id;
+        let iconClass =
+            "update-icon";
 
 
-        article.dataset.category =
-            announcement.category;
+        if (announcement.category === "important") {
 
+            iconClass = "important-icon";
 
-        if (isAdminPage) {
+        }
 
-            article.classList.add(
-                "admin-announcement-card"
-            );
+        else if (announcement.category === "maintenance") {
+
+            iconClass = "maintenance-icon";
 
         }
 
 
-        /* ICON */
 
-        const iconContainer =
-            document.createElement("div");
+        let categoryClass =
+            announcement.category === "complaint-update"
+                ? "update"
+                : announcement.category;
 
 
-        iconContainer.className =
-            "announcement-card-icon " +
-            getCategoryIconClass(
-                announcement.category
-            );
 
+        card.innerHTML = `
 
-        const icon =
-            document.createElement("i");
+            <div class="announcement-card-icon ${iconClass}">
 
+                <i class="fa-solid ${getCategoryIcon(announcement.category)}"></i>
 
-        icon.className =
-            "fa-solid " +
-            getCategoryIcon(
-                announcement.category
-            );
+            </div>
 
 
-        iconContainer.appendChild(
-            icon
-        );
+            <div class="announcement-content">
 
+                <div class="announcement-top">
 
-        /* CONTENT */
+                    <div>
 
-        const content =
-            document.createElement("div");
+                        <span class="announcement-category ${categoryClass}">
 
+                            <i class="fa-solid ${getCategoryIcon(announcement.category)}"></i>
 
-        content.className =
-            "announcement-content";
+                            ${getCategoryName(announcement.category)}
 
+                        </span>
 
-        /* TOP SECTION */
 
-        const top =
-            document.createElement("div");
+                        <h3>
+                            ${announcement.title}
+                        </h3>
 
+                    </div>
 
-        top.className =
-            "announcement-top";
 
+                    <span class="announcement-date">
 
-        const titleSection =
-            document.createElement("div");
+                        <i class="fa-regular fa-calendar"></i>
 
+                        ${formatDate(announcement.date)}
 
-        const categoryBadge =
-            document.createElement("span");
+                    </span>
 
+                </div>
 
-        categoryBadge.className =
-            "announcement-category " +
-            announcement.category;
 
+                <p>
+                    ${announcement.description}
+                </p>
 
-        const badgeIcon =
-            document.createElement("i");
 
+                <div class="announcement-actions">
 
-        badgeIcon.className =
-            "fa-solid " +
-            getCategoryIcon(
-                announcement.category
-            );
+                    <button
+                        type="button"
+                        class="edit-announcement-btn"
+                        data-id="${announcement.id}">
 
+                        <i class="fa-solid fa-pen"></i>
 
-        const badgeText =
-            document.createTextNode(
-                " " +
-                getCategoryLabel(
-                    announcement.category
-                )
-            );
+                        Edit
 
+                    </button>
 
-        categoryBadge.appendChild(
-            badgeIcon
-        );
 
+                    <button
+                        type="button"
+                        class="delete-announcement-btn"
+                        data-id="${announcement.id}">
 
-        categoryBadge.appendChild(
-            badgeText
-        );
+                        <i class="fa-solid fa-trash"></i>
 
+                        Delete
 
-        const title =
-            document.createElement("h3");
+                    </button>
 
+                </div>
 
-        title.textContent =
-            announcement.title;
+            </div>
 
+        `;
 
-        titleSection.appendChild(
-            categoryBadge
-        );
 
+        announcementList.appendChild(card);
 
-        titleSection.appendChild(
-            title
-        );
+    });
 
 
-        /* DATE */
 
-        const date =
-            document.createElement("span");
+    /* UPDATE COUNT */
 
+    announcementCount.textContent =
+        `${announcements.length} Updates`;
 
-        date.className =
-            "announcement-date";
+}
 
 
-        const dateIcon =
-            document.createElement("i");
 
+/* =====================================================
+   OPEN ADD MODAL
+===================================================== */
 
-        dateIcon.className =
-            "fa-regular fa-calendar";
+openAddModal.addEventListener("click", function () {
 
+    modalTitle.textContent =
+        "Add Announcement";
 
-        date.appendChild(
-            dateIcon
-        );
 
+    announcementForm.reset();
 
-        date.appendChild(
-            document.createTextNode(
-                " " +
-                announcement.date
-            )
-        );
 
+    announcementId.value = "";
 
-        top.appendChild(
-            titleSection
-        );
 
+    modal.classList.add("show");
 
-        top.appendChild(
-            date
-        );
+});
 
 
-        /* MESSAGE */
 
-        const message =
-            document.createElement("p");
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
 
+function closeAnnouncementModal() {
 
-        message.textContent =
-            announcement.message;
+    modal.classList.remove("show");
 
+}
 
-        content.appendChild(
-            top
-        );
 
 
-        content.appendChild(
-            message
-        );
+closeModal.addEventListener(
+    "click",
+    closeAnnouncementModal
+);
 
 
-        /* =====================================
-           ADMIN ACTION BUTTONS
-        ===================================== */
+cancelModal.addEventListener(
+    "click",
+    closeAnnouncementModal
+);
 
-        if (isAdminPage) {
 
-            const actions =
-                document.createElement("div");
 
+/* =====================================================
+   CLOSE WHEN CLICKING OUTSIDE
+===================================================== */
 
-            actions.className =
-                "announcement-actions";
+modal.addEventListener("click", function (event) {
 
+    if (event.target === modal) {
 
-            /* EDIT BUTTON */
-
-            const editButton =
-                document.createElement("button");
-
-
-            editButton.type =
-                "button";
-
-
-            editButton.className =
-                "action-btn edit-btn";
-
-
-            editButton.dataset.id =
-                announcement.id;
-
-
-            editButton.innerHTML =
-                '<i class="fa-solid fa-pen"></i> Edit';
-
-
-            /* DELETE BUTTON */
-
-            const deleteButton =
-                document.createElement("button");
-
-
-            deleteButton.type =
-                "button";
-
-
-            deleteButton.className =
-                "action-btn delete-btn";
-
-
-            deleteButton.dataset.id =
-                announcement.id;
-
-
-            deleteButton.innerHTML =
-                '<i class="fa-solid fa-trash"></i> Delete';
-
-
-            actions.appendChild(
-                editButton
-            );
-
-
-            actions.appendChild(
-                deleteButton
-            );
-
-
-            content.appendChild(
-                actions
-            );
-
-        }
-
-
-        article.appendChild(
-            iconContainer
-        );
-
-
-        article.appendChild(
-            content
-        );
-
-
-        return article;
+        closeAnnouncementModal();
 
     }
 
+});
 
-    /* =========================================
-       FILTER ANNOUNCEMENTS
-    ========================================== */
 
-    function getFilteredAnnouncements() {
 
-        const searchValue =
-            announcementSearch
-                ? announcementSearch.value
-                    .toLowerCase()
-                    .trim()
-                : "";
+/* =====================================================
+   ADD / EDIT ANNOUNCEMENT
+===================================================== */
 
+announcementForm.addEventListener("submit", function (event) {
 
-        return announcements.filter(
-            function (announcement) {
+    event.preventDefault();
 
-                const title =
-                    announcement.title
-                        .toLowerCase();
 
+    const id =
+        announcementId.value;
 
-                const message =
-                    announcement.message
-                        .toLowerCase();
 
+    const title =
+        announcementTitle.value.trim();
 
-                const category =
-                    getCategoryLabel(
-                        announcement.category
-                    ).toLowerCase();
 
+    const category =
+        announcementCategory.value;
 
-                const matchesSearch =
 
-                    title.includes(searchValue) ||
+    const date =
+        announcementDate.value;
 
-                    message.includes(searchValue) ||
 
-                    category.includes(searchValue);
+    const description =
+        announcementDescription.value.trim();
 
 
-                const matchesFilter =
 
-                    currentFilter === "all" ||
+    /* EDIT */
 
-                    announcement.category ===
-                    currentFilter;
+    if (id) {
 
+        const announcement =
+            announcements.find(function (item) {
 
-                return (
-                    matchesSearch &&
-                    matchesFilter
-                );
+                return item.id === Number(id);
 
-            }
-        );
+            });
 
-    }
 
+        if (announcement) {
 
-    /* =========================================
-       RENDER ANNOUNCEMENTS
-    ========================================== */
+            announcement.title =
+                title;
 
-    function renderAnnouncements() {
+            announcement.category =
+                category;
 
-        if (!announcementsList) {
-            return;
-        }
+            announcement.date =
+                date;
 
-
-        announcementsList.innerHTML = "";
-
-
-        const filteredAnnouncements =
-            getFilteredAnnouncements();
-
-
-        if (
-            filteredAnnouncements.length === 0
-        ) {
-
-            if (noAnnouncements) {
-
-                noAnnouncements.style.display =
-                    "block";
-
-            }
-
-        }
-        else {
-
-            if (noAnnouncements) {
-
-                noAnnouncements.style.display =
-                    "none";
-
-            }
-
-
-            filteredAnnouncements.forEach(
-                function (announcement) {
-
-                    const card =
-                        createAnnouncementCard(
-                            announcement
-                        );
-
-
-                    announcementsList.appendChild(
-                        card
-                    );
-
-                }
-            );
-
-        }
-
-
-        updateCounts();
-
-    }
-
-
-    /* =========================================
-       SEARCH
-    ========================================== */
-
-    if (announcementSearch) {
-
-        announcementSearch.addEventListener(
-            "input",
-            function () {
-
-                renderAnnouncements();
-
-            }
-        );
-
-    }
-
-
-    /* =========================================
-       CLEAR SEARCH
-    ========================================== */
-
-    if (clearSearchButton) {
-
-        clearSearchButton.addEventListener(
-            "click",
-            function () {
-
-                if (!announcementSearch) {
-                    return;
-                }
-
-
-                announcementSearch.value =
-                    "";
-
-
-                announcementSearch.focus();
-
-
-                renderAnnouncements();
-
-            }
-        );
-
-    }
-
-
-    /* =========================================
-       FILTERS
-    ========================================== */
-
-    filterButtons.forEach(
-        function (button) {
-
-            button.addEventListener(
-                "click",
-                function () {
-
-                    filterButtons.forEach(
-                        function (item) {
-
-                            item.classList.remove(
-                                "active"
-                            );
-
-                        }
-                    );
-
-
-                    button.classList.add(
-                        "active"
-                    );
-
-
-                    currentFilter =
-                        button.dataset.filter ||
-                        "all";
-
-
-                    renderAnnouncements();
-
-                }
-            );
-
-        }
-    );
-
-
-    /* =========================================
-       MODAL FUNCTIONS
-    ========================================== */
-
-    function openAnnouncementModal() {
-
-        if (!announcementModal) {
-            return;
-        }
-
-
-        announcementModal.classList.add(
-            "active"
-        );
-
-
-        document.body.style.overflow =
-            "hidden";
-
-    }
-
-
-    function closeAnnouncementModal() {
-
-        if (!announcementModal) {
-            return;
-        }
-
-
-        announcementModal.classList.remove(
-            "active"
-        );
-
-
-        document.body.style.overflow =
-            "";
-
-
-        resetAnnouncementForm();
-
-    }
-
-
-    /* =========================================
-       RESET FORM
-    ========================================== */
-
-    function resetAnnouncementForm() {
-
-        if (announcementForm) {
-
-            announcementForm.reset();
-
-        }
-
-
-        editingAnnouncementId =
-            null;
-
-    }
-
-
-    /* =========================================
-       SET MODAL MODE
-    ========================================== */
-
-    function setModalMode(mode) {
-
-        if (!announcementModal) {
-            return;
-        }
-
-
-        const modalHeading =
-            announcementModal.querySelector(
-                ".modal-header h2"
-            );
-
-
-        const modalParagraph =
-            announcementModal.querySelector(
-                ".modal-header p"
-            );
-
-
-        const submitButton =
-            announcementForm?.querySelector(
-                ".save-announcement-btn"
-            );
-
-
-        if (mode === "edit") {
-
-            if (modalHeading) {
-
-                modalHeading.innerHTML =
-                    '<i class="fa-solid fa-pen"></i> Edit Announcement';
-
-            }
-
-
-            if (modalParagraph) {
-
-                modalParagraph.textContent =
-                    "Update the announcement details.";
-
-            }
-
-
-            if (submitButton) {
-
-                submitButton.innerHTML =
-                    '<i class="fa-solid fa-floppy-disk"></i> Save Changes';
-
-            }
-
-        }
-        else {
-
-            if (modalHeading) {
-
-                modalHeading.innerHTML =
-                    '<i class="fa-solid fa-bullhorn"></i> Add Announcement';
-
-            }
-
-
-            if (modalParagraph) {
-
-                modalParagraph.textContent =
-                    "Create a complaint-related announcement.";
-
-            }
-
-
-            if (submitButton) {
-
-                submitButton.innerHTML =
-                    '<i class="fa-solid fa-paper-plane"></i> Publish Announcement';
-
-            }
+            announcement.description =
+                description;
 
         }
 
     }
 
 
-    /* =========================================
-       OPEN ADD ANNOUNCEMENT
-    ========================================== */
+    /* ADD */
 
-    if (openAddAnnouncement) {
+    else {
 
-        openAddAnnouncement.addEventListener(
-            "click",
-            function () {
+        const newAnnouncement = {
 
-                resetAnnouncementForm();
+            id: Date.now(),
+
+            title: title,
+
+            category: category,
+
+            date: date,
+
+            description: description
+
+        };
 
 
-                setModalMode(
-                    "add"
-                );
-
-
-                openAnnouncementModal();
-
-            }
+        announcements.unshift(
+            newAnnouncement
         );
 
     }
 
-
-    /* =========================================
-       CLOSE MODAL EVENTS
-    ========================================== */
-
-    if (closeModal) {
-
-        closeModal.addEventListener(
-            "click",
-            closeAnnouncementModal
-        );
-
-    }
-
-
-    if (closeModalBtn) {
-
-        closeModalBtn.addEventListener(
-            "click",
-            closeAnnouncementModal
-        );
-
-    }
-
-
-    if (cancelAnnouncement) {
-
-        cancelAnnouncement.addEventListener(
-            "click",
-            closeAnnouncementModal
-        );
-
-    }
-
-
-    /* =========================================
-       ESC KEY
-    ========================================== */
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
-
-            if (
-                event.key === "Escape" &&
-                announcementModal &&
-                announcementModal.classList.contains(
-                    "active"
-                )
-            ) {
-
-                closeAnnouncementModal();
-
-            }
-
-        }
-    );
-
-
-    /* =========================================
-       FORM SUBMIT
-    ========================================== */
-
-    if (announcementForm) {
-
-        announcementForm.addEventListener(
-            "submit",
-            function (event) {
-
-                event.preventDefault();
-
-
-                const title =
-                    announcementTitle
-                        ?.value
-                        .trim();
-
-
-                const category =
-                    announcementCategory
-                        ?.value;
-
-
-                const message =
-                    announcementMessage
-                        ?.value
-                        .trim();
-
-
-                /* VALIDATION */
-
-                if (
-                    !title ||
-                    !category ||
-                    !message
-                ) {
-
-                    alert(
-                        "Please fill in all announcement fields."
-                    );
-
-
-                    return;
-
-                }
-
-
-                /*
-                   IMPORTANT FIX:
-
-                   Store whether this is an edit
-                   BEFORE closeAnnouncementModal()
-                   resets editingAnnouncementId.
-                */
-
-                const isEditing =
-                    editingAnnouncementId !== null;
-
-
-                /* =================================
-                   EDIT ANNOUNCEMENT
-                ================================= */
-
-                if (isEditing) {
-
-                    const index =
-                        announcements.findIndex(
-                            function (item) {
-
-                                return (
-                                    item.id ===
-                                    editingAnnouncementId
-                                );
-
-                            }
-                        );
-
-
-                    if (index !== -1) {
-
-                        announcements[index].title =
-                            title;
-
-
-                        announcements[index].category =
-                            category;
-
-
-                        announcements[index].categoryLabel =
-                            getCategoryLabel(
-                                category
-                            );
-
-
-                        announcements[index].message =
-                            message;
-
-                    }
-
-                }
-
-
-                /* =================================
-                   ADD ANNOUNCEMENT
-                ================================= */
-
-                else {
-
-                    const newAnnouncement = {
-
-                        id:
-                            generateAnnouncementId(),
-
-                        title:
-                            title,
-
-                        message:
-                            message,
-
-                        category:
-                            category,
-
-                        categoryLabel:
-                            getCategoryLabel(
-                                category
-                            ),
-
-                        date:
-                            getCurrentDate()
-
-                    };
-
-
-                    /*
-                       New announcements appear
-                       at the top.
-                    */
-
-                    announcements.unshift(
-                        newAnnouncement
-                    );
-
-                }
-
-
-                /* SAVE DATA */
-
-                saveAnnouncements(
-                    announcements
-                );
-
-
-                /* CLOSE MODAL */
-
-                closeAnnouncementModal();
-
-
-                /* UPDATE UI */
-
-                renderAnnouncements();
-
-
-                /* SUCCESS MESSAGE */
-
-                if (isEditing) {
-
-                    alert(
-                        "Announcement updated successfully."
-                    );
-
-                }
-                else {
-
-                    alert(
-                        "Announcement published successfully."
-                    );
-
-                }
-
-            }
-        );
-
-    }
-
-
-    /* =========================================
-       EDIT AND DELETE
-
-       Event delegation is required because
-       cards are created dynamically.
-    ========================================== */
-
-    if (announcementsList) {
-
-        announcementsList.addEventListener(
-            "click",
-            function (event) {
-
-                const editButton =
-                    event.target.closest(
-                        ".edit-btn"
-                    );
-
-
-                const deleteButton =
-                    event.target.closest(
-                        ".delete-btn"
-                    );
-
-
-                /* =================================
-                   EDIT
-                ================================= */
-
-                if (editButton) {
-
-                    const id =
-                        editButton.dataset.id;
-
-
-                    const announcement =
-                        announcements.find(
-                            function (item) {
-
-                                return (
-                                    item.id === id
-                                );
-
-                            }
-                        );
-
-
-                    if (!announcement) {
-                        return;
-                    }
-
-
-                    editingAnnouncementId =
-                        announcement.id;
-
-
-                    if (announcementTitle) {
-
-                        announcementTitle.value =
-                            announcement.title;
-
-                    }
-
-
-                    if (announcementCategory) {
-
-                        announcementCategory.value =
-                            announcement.category;
-
-                    }
-
-
-                    if (announcementMessage) {
-
-                        announcementMessage.value =
-                            announcement.message;
-
-                    }
-
-
-                    setModalMode(
-                        "edit"
-                    );
-
-
-                    openAnnouncementModal();
-
-
-                    return;
-
-                }
-
-
-                /* =================================
-                   DELETE
-                ================================= */
-
-                if (deleteButton) {
-
-                    const id =
-                        deleteButton.dataset.id;
-
-
-                    const announcement =
-                        announcements.find(
-                            function (item) {
-
-                                return (
-                                    item.id === id
-                                );
-
-                            }
-                        );
-
-
-                    if (!announcement) {
-                        return;
-                    }
-
-
-                    const confirmed =
-                        confirm(
-                            'Are you sure you want to delete "' +
-                            announcement.title +
-                            '"?'
-                        );
-
-
-                    if (!confirmed) {
-                        return;
-                    }
-
-
-                    announcements =
-                        announcements.filter(
-                            function (item) {
-
-                                return (
-                                    item.id !== id
-                                );
-
-                            }
-                        );
-
-
-                    saveAnnouncements(
-                        announcements
-                    );
-
-
-                    renderAnnouncements();
-
-                }
-
-            }
-        );
-
-    }
-
-
-    /* =========================================
-       SYNCHRONIZE BETWEEN TABS
-
-       Example:
-
-       Admin tab:
-       Add announcement
-             ↓
-       localStorage updates
-             ↓
-       Student tab updates
-    ========================================== */
-
-    window.addEventListener(
-        "storage",
-        function (event) {
-
-            if (
-                event.key === STORAGE_KEY
-            ) {
-
-                announcements =
-                    loadAnnouncements();
-
-
-                renderAnnouncements();
-
-            }
-
-        }
-    );
-
-
-    /* =========================================
-       INITIAL LOAD
-    ========================================== */
-
-    announcements =
-        loadAnnouncements();
 
 
     renderAnnouncements();
 
+    closeAnnouncementModal();
+
 });
+
+
+
+/* =====================================================
+   EDIT / DELETE BUTTONS
+===================================================== */
+
+announcementList.addEventListener(
+    "click",
+    function (event) {
+
+
+        const editButton =
+            event.target.closest(
+                ".edit-announcement-btn"
+            );
+
+
+        const deleteButton =
+            event.target.closest(
+                ".delete-announcement-btn"
+            );
+
+
+
+        /* EDIT */
+
+        if (editButton) {
+
+            const id =
+                Number(editButton.dataset.id);
+
+
+            const announcement =
+                announcements.find(function (item) {
+
+                    return item.id === id;
+
+                });
+
+
+            if (!announcement) {
+
+                return;
+
+            }
+
+
+            modalTitle.textContent =
+                "Edit Announcement";
+
+
+            announcementId.value =
+                announcement.id;
+
+
+            announcementTitle.value =
+                announcement.title;
+
+
+            announcementCategory.value =
+                announcement.category;
+
+
+            announcementDate.value =
+                announcement.date;
+
+
+            announcementDescription.value =
+                announcement.description;
+
+
+            modal.classList.add("show");
+
+        }
+
+
+
+        /* DELETE */
+
+        if (deleteButton) {
+
+            const id =
+                Number(deleteButton.dataset.id);
+
+
+            const announcement =
+                announcements.find(function (item) {
+
+                    return item.id === id;
+
+                });
+
+
+            if (!announcement) {
+
+                return;
+
+            }
+
+
+            const confirmDelete =
+                confirm(
+                    `Are you sure you want to delete "${announcement.title}"?`
+                );
+
+
+            if (confirmDelete) {
+
+                announcements =
+                    announcements.filter(function (item) {
+
+                        return item.id !== id;
+
+                    });
+
+
+                renderAnnouncements();
+
+            }
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+searchInput.addEventListener(
+    "input",
+    renderAnnouncements
+);
+
+
+
+/* =====================================================
+   CLEAR SEARCH
+===================================================== */
+
+clearSearch.addEventListener(
+    "click",
+    function () {
+
+        searchInput.value = "";
+
+        renderAnnouncements();
+
+    }
+);
+
+
+
+/* =====================================================
+   FILTERS
+===================================================== */
+
+filterButtons.forEach(function (button) {
+
+
+    button.addEventListener(
+        "click",
+        function () {
+
+
+            filterButtons.forEach(
+                function (item) {
+
+                    item.classList.remove("active");
+
+                }
+            );
+
+
+            button.classList.add("active");
+
+
+            currentFilter =
+                button.dataset.filter;
+
+
+            renderAnnouncements();
+
+        }
+    );
+
+});
+
+
+
+/* =====================================================
+   INITIAL LOAD
+===================================================== */
+
+renderAnnouncements();

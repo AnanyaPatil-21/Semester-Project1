@@ -1,0 +1,880 @@
+/* =====================================================
+   CAMPUSPLUS COMPLAINTS
+   Same visual style as Login & Registration
+   ===================================================== */
+
+
+/* ================= GENERAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #f4f7fb;
+    color: #1f2937;
+    font-family: "Roboto", sans-serif;
+}
+
+
+/* ================= HEADER ================= */
+
+.header {
+    height: 70px;
+    padding: 0 7%;
+    background: #123b63;
+    display: flex;
+    align-items: center;
+}
+
+.header-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo h2 {
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* ================= MAIN ================= */
+
+.complaints-section {
+    min-height: calc(100vh - 130px);
+    padding: 50px 20px;
+}
+
+.complaints-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.details-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+/* ================= PAGE HEADING ================= */
+
+.complaints-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.page-label {
+    color: #1f6f9f;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.complaints-heading h1 {
+    color: #123b63;
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.complaints-heading > p:last-child {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* ================= ACTION CARDS ================= */
+
+.complaint-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-bottom: 30px;
+}
+
+.complaint-action-card {
+    display: flex;
+    gap: 20px;
+    background: white;
+    border: 1px solid #e1e7ef;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.action-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 8px;
+    background: #edf2f7;
+    color: #123b63;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.action-content {
+    flex: 1;
+}
+
+.action-content h2 {
+    color: #123b63;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.action-content p {
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.btn-primary,
+.btn-secondary,
+.btn-danger,
+.btn-success {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 18px;
+    border-radius: 7px;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: #123b63;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0d2f4f;
+}
+
+.btn-secondary {
+    background: #edf2f7;
+    color: #123b63;
+    border: 1px solid #d7e0ea;
+}
+
+.btn-secondary:hover {
+    background: #e2e9f0;
+}
+
+.btn-danger {
+    background: #b42318;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #8f1c13;
+}
+
+.btn-success {
+    background: #247a45;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #1b6036;
+}
+
+
+/* ================= SECTION ================= */
+
+.status-summary,
+.recent-section {
+    background: white;
+    border: 1px solid #e1e7ef;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    color: #123b63;
+    font-family: "Poppins", sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.section-heading p {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.view-link {
+    color: #1f6f9f;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.view-link:hover {
+    text-decoration: underline;
+}
+
+
+/* ================= STATUS CARDS ================= */
+
+.status-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.status-card {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 18px;
+    background: #f8fafc;
+    border: 1px solid #e1e7ef;
+    border-radius: 8px;
+}
+
+.status-number {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.pending-number {
+    background: #fff4d6;
+    color: #946200;
+}
+
+.progress-number {
+    background: #e6f0f8;
+    color: #1f6f9f;
+}
+
+.resolved-number {
+    background: #e5f4eb;
+    color: #247a45;
+}
+
+.rejected-number {
+    background: #fbe9e7;
+    color: #b42318;
+}
+
+.status-card h3 {
+    color: #27364a;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.status-card p {
+    color: #6b7280;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+
+/* ================= RECENT COMPLAINT ================= */
+
+.recent-complaints {
+    display: flex;
+    flex-direction: column;
+}
+
+.complaint-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 17px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.complaint-row:last-child {
+    border-bottom: none;
+}
+
+.complaint-info strong {
+    display: block;
+    color: #27364a;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.complaint-info span {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+
+/* ================= STATUS BADGES ================= */
+
+.status {
+    display: inline-flex;
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.status-pending {
+    background: #fff4d6;
+    color: #946200;
+}
+
+.status-progress {
+    background: #e6f0f8;
+    color: #1f6f9f;
+}
+
+.status-resolved {
+    background: #e5f4eb;
+    color: #247a45;
+}
+
+.status-completed {
+    background: #e5f4eb;
+    color: #247a45;
+}
+
+.status-rejected {
+    background: #fbe9e7;
+    color: #b42318;
+}
+
+
+/* ================= FORM CARD ================= */
+
+.complaint-form-card,
+.complaint-list-card,
+.filter-card,
+.admin-complaints-card,
+.details-card {
+    background: white;
+    border: 1px solid #e1e7ef;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.complaint-form-card {
+    padding: 35px;
+}
+
+
+/* ================= FORM SECTION ================= */
+
+.form-section {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.form-section h2,
+.filter-card h2 {
+    color: #123b63;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: -10px;
+    margin-bottom: 18px;
+}
+
+
+/* ================= FORM ROW ================= */
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+
+/* ================= FORM GROUP ================= */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #27364a;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    outline: none;
+    background: white;
+    color: #1f2937;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #1f6f9f;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group input[type="file"] {
+    padding: 10px;
+}
+
+.form-group small {
+    display: block;
+    color: #6b7280;
+    font-size: 11px;
+    margin-top: 6px;
+}
+
+.optional {
+    color: #6b7280;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+}
+
+
+/* ================= CHARACTER COUNT ================= */
+
+.character-count {
+    text-align: right;
+    color: #6b7280;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+
+/* ================= ISSUE GRID ================= */
+
+.issue-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.issue-card {
+    padding: 15px;
+    border: 1px solid #dbe3eb;
+    border-radius: 8px;
+    background: #f8fafc;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.issue-card:hover {
+    border-color: #1f6f9f;
+}
+
+.issue-card.selected {
+    border-color: #123b63;
+    background: #edf2f7;
+}
+
+.issue-card h3 {
+    color: #27364a;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.issue-card p {
+    color: #6b7280;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+
+/* ================= FORM BUTTONS ================= */
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 5px;
+}
+
+
+/* ================= MY COMPLAINTS ================= */
+
+.complaint-list-card {
+    padding: 28px;
+}
+
+.my-complaint-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.my-complaint-item:first-child {
+    padding-top: 0;
+}
+
+.my-complaint-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.my-complaint-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.my-complaint-id {
+    color: #1f6f9f;
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.my-complaint-item h3 {
+    color: #123b63;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.my-complaint-location {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.my-complaint-description {
+    color: #4b5563;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 12px 0;
+}
+
+.details-link {
+    color: #1f6f9f;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.details-link:hover {
+    text-decoration: underline;
+}
+
+
+/* ================= FILTER ================= */
+
+.filter-card {
+    padding: 28px;
+    margin-bottom: 25px;
+}
+
+.filter-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.filter-row .form-group {
+    margin-bottom: 0;
+}
+
+
+/* ================= ADMIN COMPLAINTS ================= */
+
+.admin-complaints-card {
+    padding: 28px;
+}
+
+.complaint-count {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+
+/* ================= DETAILS ================= */
+
+.details-card {
+    padding: 30px;
+    margin-bottom: 25px;
+}
+
+.detail-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-header h2 {
+    color: #123b63;
+    font-family: "Poppins", sans-serif;
+    font-size: 21px;
+    margin-bottom: 6px;
+}
+
+.complaint-id {
+    color: #1f6f9f;
+    font-size: 12px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.detail-item label {
+    display: block;
+    color: #6b7280;
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+
+.detail-item strong {
+    color: #27364a;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+}
+
+.detail-description {
+    grid-column: 1 / -1;
+}
+
+.detail-description p {
+    color: #4b5563;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ================= ADMIN ACTIONS ================= */
+
+.admin-actions {
+    background: white;
+    border: 1px solid #e1e7ef;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+/* ================= EMPTY MESSAGE ================= */
+
+.empty-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #123b63;
+    color: #dbe7f3;
+    font-size: 12px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 800px) {
+
+    .complaint-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .status-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filter-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-description {
+        grid-column: auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .complaints-section {
+        padding: 35px 15px;
+    }
+
+    .complaints-heading h1 {
+        font-size: 25px;
+    }
+
+    .complaint-action-card {
+        padding: 22px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .issue-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .status-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-row {
+        grid-template-columns: 1fr;
+    }
+
+    .complaint-form-card,
+    .complaint-list-card,
+    .filter-card,
+    .admin-complaints-card,
+    .details-card,
+    .admin-actions {
+        padding: 22px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .form-buttons {
+        flex-direction: column-reverse;
+    }
+
+    .form-buttons a,
+    .form-buttons button {
+        width: 100%;
+    }
+
+    .detail-header {
+        flex-direction: column;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-buttons button {
+        width: 100%;
+    }
+}
