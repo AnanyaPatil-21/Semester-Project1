@@ -1,439 +1,316 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-
-    <!-- Responsive Design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Student Registration | CampusPlus</title>
+    <title>Registration | CampusPlus</title>
 
-    <!-- Common CSS -->
     <link rel="stylesheet" href="../css/style.css">
-
-    <!-- Registration Page CSS -->
     <link rel="stylesheet" href="../css/registration.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- ================================
-         HEADER
-         ================================ -->
-
+    <!-- Header -->
     <header class="header">
-        <div class="header-container">
-
-            <!-- Logo -->
-            <div class="logo">
-                <h2>CampusPlus</h2>
-            </div>
-
-            <!-- Navigation -->
-            <nav>
-                <ul class="nav-links">
-                    <li>
-                        <a href="../index.html">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="login.html">Login</a>
-                    </li>
-                </ul>
-            </nav>
-
+        <div class="logo">
+            <a href="home.html">CampusPlus</a>
         </div>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="login.html">Login</a>
+        </nav>
     </header>
 
 
-    <!-- ================================
-         REGISTRATION SECTION
-         ================================ -->
+    <!-- Registration Section -->
+    <main class="registration-container">
 
-    <main class="registration-section">
+        <div class="registration-card">
 
-        <div class="registration-container">
+            <div class="registration-header">
+                <h1>Create Your Account</h1>
+                <p>Join CampusPlus and access your campus services</p>
+            </div>
 
-            <!-- Page Heading -->
-            <div class="registration-heading">
-                <h1>Student Registration</h1>
-
-                <p>
-                    Create your CampusPlus account to access
-                    campus services and manage your complaints.
-                </p>
+            <div class="verification-note">
+                🔐 Your student identity will be verified before your account is activated.
             </div>
 
 
-            <!-- Registration Form -->
-            <div class="registration-card">
+            <form id="registrationForm">
 
-                <form id="registrationForm">
+                <!-- Personal Information -->
+                <section class="form-section">
 
+                    <h2>Personal Information</h2>
 
-                    <!-- ================================
-                         PERSONAL INFORMATION
-                         ================================ -->
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            required>
+                    </div>
 
-                    <div class="form-section">
+                    <div class="form-group">
+                        <label for="email">College Email ID</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your college email"
+                            required>
+                    </div>
 
-                        <h2>Personal Information</h2>
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number</label>
+                        <input
+                            type="tel"
+                            id="mobile"
+                            name="mobile"
+                            maxlength="10"
+                            pattern="[0-9]{10}"
+                            placeholder="Enter 10-digit mobile number"
+                            required>
+                    </div>
 
-                        <div class="form-row">
+                    <div class="form-group">
+                        <label for="studentId">PRN / Student ID</label>
+                        <input
+                            type="text"
+                            id="studentId"
+                            name="studentId"
+                            placeholder="Enter your PRN / Student ID"
+                            required>
+                    </div>
 
-                            <!-- Full Name -->
-                            <div class="form-group">
-                                <label for="fullName">
-                                    Full Name
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="fullName"
-                                    name="fullName"
-                                    placeholder="Enter your full name"
-                                    required
-                                >
-                            </div>
-
-
-                            <!-- Email -->
-                            <div class="form-group">
-                                <label for="email">
-                                    Student Email
-                                </label>
-
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder="Enter your email"
-                                    required
-                                >
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-row">
-
-                            <!-- Mobile Number -->
-                            <div class="form-group">
-                                <label for="mobile">
-                                    Mobile Number
-                                </label>
-
-                                <input
-                                    type="tel"
-                                    id="mobile"
-                                    name="mobile"
-                                    placeholder="Enter your mobile number"
-                                    maxlength="10"
-                                    required
-                                >
-                            </div>
+                </section>
 
 
-                            <!-- Student ID -->
-                            <div class="form-group">
-                                <label for="PRN">
-                                    PRN
-                                </label>
+                <!-- Academic Information -->
+                <section class="form-section">
 
-                                <input
-                                    type="text"
-                                    id="studentId"
-                                    name="studentId"
-                                    placeholder="Enter your PRN"
-                                    required
-                                >
-                            </div>
+                    <h2>Academic Information</h2>
 
-                        </div>
+                    <div class="form-group">
+                        <label for="department">Department</label>
+
+                        <select id="department" name="department" required>
+
+                            <option value="">Select Department</option>
+
+                            <option value="computer">
+                                Computer Engineering
+                            </option>
+
+                            <option value="Computer Science & Engineering (Data Science)">
+                                Computer Science & Engineering (Data Science)
+                            </option>
+
+                            <option value="ai-ds">
+                                Artificial Intelligence & Data Science
+                            </option>
+
+                            <option value="mechanical">
+                                Mechanical Engineering
+                            </option>
+
+                            <option value="civil">
+                                Civil Engineering
+                            </option>
+
+                            <option value="electrical">
+                                Electrical Engineering
+                            </option>
+
+                            <option value="Electronics and Telecommunication">
+                                Electronics and Telecommunication
+                            </option>
+
+                            <option value="Information Technology">
+                                Information Technology
+                            </option>
+
+                            <option value="Artificial Intelligence and Machine Learning">
+                                Artificial Intelligence and Machine Learning
+                            </option>
+
+                            <option value="Applied Science and Humanities">
+                                Applied Science and Humanities
+                            </option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="year">Year</label>
+
+                        <select id="year" name="year" required>
+
+                            <option value="">Select Year</option>
+                            <option value="first">First Year</option>
+                            <option value="second">Second Year</option>
+                            <option value="third">Third Year</option>
+                            <option value="fourth">Fourth Year</option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="division">Division</label>
+
+                        <select id="division" name="division" required>
+
+                            <option value="">Select Division</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="rollNumber">Roll Number</label>
+
+                        <input
+                            type="number"
+                            id="rollNumber"
+                            name="rollNumber"
+                            placeholder="Enter your roll number"
+                            required>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Account Information -->
+                <section class="form-section">
+
+                    <h2>Account Information</h2>
+
+                    <div class="form-group">
+
+                        <label for="password">Password</label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            minlength="8"
+                            placeholder="Create a password"
+                            required>
 
                     </div>
 
 
-                    <!-- ================================
-                         ACADEMIC INFORMATION
-                         ================================ -->
+                    <div class="form-group">
 
-                    <div class="form-section">
+                        <label for="confirmPassword">Confirm Password</label>
 
-                        <h2>Academic Information</h2>
-
-                        <div class="form-row">
-
-                            <!-- Department -->
-                            <div class="form-group">
-                                <label for="department">
-                                    Department
-                                </label>
-
-                                <select
-                                    id="department"
-                                    name="department"
-                                    required
-                                >
-                                    <option value="">
-                                        Select Department
-                                    </option>
-
-                                    <option value="computer">
-                                        Computer Engineering
-                                    </option>
-
-                                    <option value="Computer Science & Engineering (Data Science)">
-                                        Computer Science & Engineering (Data Science)
-                                    </option>
-
-                                    <option value="ai-ds">
-                                        Artificial Intelligence & Data Science
-                                    </option>
-
-                                    <option value="mechanical">
-                                        Mechanical Engineering
-                                    </option>
-
-                                    <option value="civil">
-                                        Civil Engineering
-                                    </option>
-
-                                    <option value="electrical">
-                                        Electrical Engineering
-                                    </option>
-
-                                    <option value="Electronics and Telecommunication">
-                                        Electronics and Telecommunication 
-                                    </option>
-
-                                    <option value="Information Technology">
-                                        Information Technology
-                                    </option>
-
-                                    <option value="Artificial Intelligence and Machine Learning">
-                                        Artificial Intelligence and Machine Learning
-                                    </option>
-
-                                    <option value="Applied Science and Humanities">
-                                        Applied Science and Humanities
-                                    </option>
-
-                                </select>
-                            </div>
-
-
-                            <!-- Year -->
-                            <div class="form-group">
-                                <label for="year">
-                                    Year
-                                </label>
-
-                                <select
-                                    id="year"
-                                    name="year"
-                                    required
-                                >
-                                    <option value="">
-                                        Select Year
-                                    </option>
-
-                                    <option value="first">
-                                        First Year
-                                    </option>
-
-                                    <option value="second">
-                                        Second Year
-                                    </option>
-
-                                    <option value="third">
-                                        Third Year
-                                    </option>
-
-                                    <option value="fourth">
-                                        Fourth Year
-                                    </option>
-                                </select>
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-row">
-
-                            <!-- Division -->
-                            <div class="form-group">
-                                <label for="division">
-                                    Division
-                                </label>
-
-                                <select
-                                    id="division"
-                                    name="division"
-                                    required
-                                >
-                                    <option value="">
-                                        Select Division
-                                    </option>
-
-                                    <option value="A">
-                                        A
-                                    </option>
-
-                                    <option value="B">
-                                        B
-                                    </option>
-
-                                    <option value="C">
-                                        C
-                                    </option>
-
-                            
-                                </select>
-                            </div>
-
-
-                            <!-- Roll Number -->
-                            <div class="form-group">
-                                <label for="rollNumber">
-                                    Roll Number
-                                </label>
-
-                                <input
-                                    type="number"
-                                    id="rollNumber"
-                                    name="rollNumber"
-                                    placeholder="Enter roll number"
-                                    min="1"
-                                    required
-                                >
-                            </div>
-
-                        </div>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            minlength="8"
+                            placeholder="Confirm your password"
+                            required>
 
                     </div>
 
-
-                    <!-- ================================
-                         ACCOUNT INFORMATION
-                         ================================ -->
-
-                    <div class="form-section">
-
-                        <h2>Account Information</h2>
-
-                        <div class="form-row">
-
-                            <!-- Password -->
-                            <div class="form-group">
-                                <label for="password">
-                                    Password
-                                </label>
-
-                                <input
-                                    type="password"
-                                    id="password"
-                                    name="password"
-                                    placeholder="Create a password"
-                                    required
-                                >
-                            </div>
+                </section>
 
 
-                            <!-- Confirm Password -->
-                            <div class="form-group">
-                                <label for="confirmPassword">
-                                    Confirm Password
-                                </label>
+                <!-- Verification Information -->
+                <div class="verification-info">
 
-                                <input
-                                    type="password"
-                                    id="confirmPassword"
-                                    name="confirmPassword"
-                                    placeholder="Confirm your password"
-                                    required
-                                >
-                            </div>
+                    <h3>Student Verification Required</h3>
 
-                        </div>
-
-                    </div>
-
-
-                    <!-- ================================
-                         TERMS
-                         ================================ -->
-
-                    <div class="terms-group">
-
-                        <label class="checkbox-label">
-
-                            <input
-                                type="checkbox"
-                                id="terms"
-                                name="terms"
-                                required
-                            >
-
-                            <span>
-                                I agree to the CampusPlus terms
-                                and conditions.
-                            </span>
-
-                        </label>
-
-                    </div>
-
-
-                    <!-- ================================
-                         SUBMIT BUTTON
-                         ================================ -->
-
-                    <div class="form-submit">
-
-                        <button
-                            type="submit"
-                            class="btn-primary"
-                        >
-                            Create Account
-                        </button>
-
-                    </div>
-
-
-                    <!-- Login Link -->
-
-                    <p class="login-link">
-                        Already have an account?
-                        <a href="login.html">Login here</a>
+                    <p>
+                        After submitting this form, CampusPlus will verify
+                        your student information against the college records.
                     </p>
 
-                </form>
+                    <p>
+                        After successful verification, a 6-digit OTP will be
+                        sent to your registered college email.
+                    </p>
 
-            </div>
+                </div>
+
+
+                <!-- Terms -->
+                <div class="terms">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required>
+
+                        I agree to the CampusPlus
+                        <a href="#">Terms & Conditions</a>.
+
+                    </label>
+
+                </div>
+
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    class="btn-primary">
+
+                    Continue to Verification
+
+                </button>
+
+
+                <p class="login-link">
+
+                    Already have an account?
+
+                    <a href="login.html">
+                        Login here
+                    </a>
+
+                </p>
+
+            </form>
 
         </div>
 
     </main>
 
 
-    <!-- ================================
-         FOOTER
-         ================================ -->
-
+    <!-- Footer -->
     <footer class="footer">
 
         <p>
-            &copy; 2026 CampusPlus. All rights reserved.
+            © 2026 CampusPlus. All rights reserved.
         </p>
 
     </footer>
 
 
-    <!-- Registration JavaScript -->
     <script src="../js/registration.js"></script>
 
 </body>
 
 </html>
+

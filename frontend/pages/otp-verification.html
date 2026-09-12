@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Email Verification | CampusPlus</title>
+
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css">
+
+
+    <link
+        rel="stylesheet"
+        href="../css/otp-verification.css">
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <a href="home.html">
+                CampusPlus
+            </a>
+
+        </div>
+
+
+        <nav>
+
+            <a href="home.html">
+                Home
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- OTP Section -->
+
+    <main class="otp-page">
+
+        <div class="otp-card">
+
+
+            <div class="otp-icon">
+                ✉
+            </div>
+
+
+            <h1>
+                Verify Your Email
+            </h1>
+
+
+            <p class="otp-description">
+
+                A 6-digit verification code has been
+                sent to your registered college email
+                address.
+
+            </p>
+
+
+            <!-- Email -->
+
+            <div
+                class="email-display"
+                id="emailDisplay">
+
+                Loading...
+
+            </div>
+
+
+
+            <!-- OTP Form -->
+
+            <form id="otpForm">
+
+
+                <label for="otp">
+                    Enter Verification Code
+                </label>
+
+
+                <input
+                    type="text"
+                    id="otp"
+                    class="otp-input"
+                    maxlength="6"
+                    inputmode="numeric"
+                    pattern="[0-9]{6}"
+                    placeholder="••••••"
+                    autocomplete="one-time-code"
+                    required>
+
+
+                <button
+                    type="submit"
+                    class="otp-btn">
+
+                    Verify Account
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- Message -->
+
+            <p
+                id="message"
+                class="message">
+            </p>
+
+
+
+            <!-- Resend -->
+
+            <div class="resend">
+
+                Didn't receive the code?
+
+                <button
+                    type="button"
+                    id="resendOtp">
+
+                    Resend OTP
+
+                </button>
+
+            </div>
+
+
+
+            <a
+                href="registration.html"
+                class="back-link">
+
+                ← Back to Registration
+
+            </a>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 CampusPlus. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="../js/otp-verification.js"></script>
+
+</body>
+
+</html>
+

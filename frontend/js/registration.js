@@ -1,40 +1,82 @@
-const registrationForm = document.getElementById("registrationForm");
-const password = document.getElementById("password");
-const confirmPassword = document.getElementById("confirmPassword");
-const passwordMessage = document.getElementById("passwordMessage");
+
+document
+    .getElementById("registrationForm")
+    .addEventListener("submit", function (event) {
+
+        event.preventDefault();
 
 
-// Check password match
-confirmPassword.addEventListener("input", function () {
+        const password =
+            document.getElementById("password").value;
 
-    if (confirmPassword.value === "") {
-        passwordMessage.textContent = "";
-        return;
-    }
-
-    if (password.value === confirmPassword.value) {
-        passwordMessage.textContent = "Passwords match";
-        passwordMessage.className = "success-message";
-    } else {
-        passwordMessage.textContent = "Passwords do not match";
-        passwordMessage.className = "error-message";
-    }
-});
+        const confirmPassword =
+            document.getElementById("confirmPassword").value;
 
 
-// Registration form validation
-registrationForm.addEventListener("submit", function (event) {
+        // Check password
+        if (password !== confirmPassword) {
 
-    event.preventDefault();
+            alert("Passwords do not match.");
 
-    if (password.value !== confirmPassword.value) {
-        passwordMessage.textContent = "Passwords do not match";
-        passwordMessage.className = "error-message";
-        return;
-    }
+            return;
+        }
 
-    alert("Registration successful!");
 
-    registrationForm.reset();
-    passwordMessage.textContent = "";
-});
+        // Get registration information
+        const studentData = {
+
+            fullName:
+                document.getElementById("fullName").value.trim(),
+
+            email:
+                document.getElementById("email").value.trim(),
+
+            mobile:
+                document.getElementById("mobile").value.trim(),
+
+            studentId:
+                document.getElementById("studentId").value.trim(),
+
+            department:
+                document.getElementById("department").value,
+
+            year:
+                document.getElementById("year").value,
+
+            division:
+                document.getElementById("division").value,
+
+            rollNumber:
+                document.getElementById("rollNumber").value,
+
+            password:
+                password,
+
+            verificationStatus:
+                "PENDING"
+
+        };
+
+
+        /*
+         * TEMPORARY FRONTEND DEMO
+         *
+         * Later this information will be sent
+         * to the Python + MySQL backend.
+         *
+         * Password must NOT be stored in localStorage
+         * in the final version.
+         */
+
+        localStorage.setItem(
+            "campusPlusRegistration",
+            JSON.stringify(studentData)
+        );
+
+
+        // Move to student verification
+        window.location.href =
+            "verify-student.html";
+
+    });
+
